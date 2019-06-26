@@ -14,7 +14,7 @@ class Home extends React.Component {
       guests: "",
       theme: "",
       date: "",
-      budget: "",
+      budget: "$",
       user_id: null
     },
     parties: []
@@ -41,7 +41,10 @@ class Home extends React.Component {
   };
   dateChange = date => {
     this.setState({
-      date: date
+      partyDetails: {
+        ...this.state.partyDetails,
+        date: date
+      }
     });
   };
   createParty = e => {
@@ -59,6 +62,7 @@ class Home extends React.Component {
   };
 
   render() {
+    console.log(this.state)
     return (
       <div>
         <button onClick={this.openModal} className="create-party">
@@ -102,7 +106,7 @@ class Home extends React.Component {
               <label>
                 Date{" "}
                 <DatePicker
-                  selected={this.state.date}
+                  selected={this.state.partyDetails.date}
                   onChange={this.dateChange}
                   showTimeSelect
                   timeFormat="HH:mm"

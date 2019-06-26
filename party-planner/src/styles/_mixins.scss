@@ -1,5 +1,5 @@
 @mixin btn($background, $border){
-    color: $textColor;
+    color: #fff;
     font-family: $text-secondary;
     font-size: $font-med;
     padding: 10px 15px;
@@ -7,6 +7,12 @@
     margin: 10px;
     background: $background;
     border: 2px solid $border;
+    transition: .2s all ease-out;
+    &:hover {
+        cursor: pointer;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 10px lightgrey
+    }
 }
 
 @mixin formInput(){

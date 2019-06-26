@@ -48,40 +48,59 @@ hr {
   min-height: 600px; }
 
 .create-party {
-  color: #353538;
+  color: #fff;
   font-family: "Josefin Sans", sans-serif;
   font-size: 1.5rem;
   padding: 10px 15px;
   border-radius: 5px;
   margin: 10px;
   background: #8d99ae;
-  border: 2px solid #8d99ae; }
+  border: 2px solid #8d99ae;
+  transition: .2s all ease-out; }
+  .create-party:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px lightgrey; }
 
 .App {
   text-align: center; }
 
 .styles_modal__gNwvD {
-  height: 400px;
+  height: 450px;
   width: 800px;
-  padding: 40px; }
+  padding: 40px;
+  padding-bottom: 0; }
+  .styles_modal__gNwvD > div {
+    height: 100%; }
   .styles_modal__gNwvD h2 {
     font-family: "Elsie", cursive;
     margin-bottom: 10px; }
   .styles_modal__gNwvD form {
+    font-size: 2.25rem;
     font-family: "Josefin Sans", sans-serif;
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    height: 100%; }
     .styles_modal__gNwvD form input {
-      margin-bottom: 10px; }
+      margin-bottom: 10px;
+      padding: 10px;
+      transition: .2s all ease-in; }
+      .styles_modal__gNwvD form input:focus {
+        padding: 10px 15px; }
     .styles_modal__gNwvD form button {
-      color: #353538;
+      color: #fff;
       font-family: "Josefin Sans", sans-serif;
       font-size: 1.5rem;
       padding: 10px 15px;
       border-radius: 5px;
       margin: 10px;
       background: #e5106c;
-      border: 2px solid #fff; }
+      border: 2px solid #fff;
+      transition: .2s all ease-out; }
+      .styles_modal__gNwvD form button:hover {
+        cursor: pointer;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 10px lightgrey; }
 
 .party-modal-info {
   text-align: center;
