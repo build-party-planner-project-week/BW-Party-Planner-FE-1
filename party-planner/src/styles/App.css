@@ -29,6 +29,14 @@ hr {
   width: 2x;
   background: #fff; }
 
+.party-form input {
+  padding: 5px;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid #e5106c; }
+  .party-form input:focus {
+    outline: none; }
+
 .party-list {
   display: flex;
   justify-content: space-between;

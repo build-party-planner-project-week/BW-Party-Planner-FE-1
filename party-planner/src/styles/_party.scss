@@ -29,4 +29,9 @@
       width: 2x;
       background: $background;
   }
+  .party-form {
+      input{
+          @include formInput()
+      }
+  }
  

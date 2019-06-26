@@ -37,7 +37,7 @@ class TodoList extends React.Component {
             />
           );
         })}
-        <form onSubmit={this.addTodo}>
+        <form onSubmit={this.addTodo} className="party-form">
           <input
             placeholder="enter todo item..."
             name="todoTitle"

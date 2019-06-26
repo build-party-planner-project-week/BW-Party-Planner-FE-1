@@ -8,3 +8,13 @@
     background: $background;
     border: 2px solid $border;
 }
+
+@mixin formInput(){
+    padding: 5px;
+    border-radius: 10px;
+    background: transparent;
+    border: 1px solid $callToAction;
+    &:focus{
+        outline: none;
+    }
+}
