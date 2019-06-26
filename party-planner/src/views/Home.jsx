@@ -11,7 +11,7 @@ class Home extends React.Component {
   state = {
     openModal: false,
     partyDetails: {
-      title: "",
+      // title: "",
       guests: "",
       theme: "",
       date: "",
@@ -81,11 +81,11 @@ class Home extends React.Component {
           <h2>Make your party!</h2>
           <form onSubmit={this.createParty}>
             <label>Party title</label>
-            <input
+            {/* <input
               name="title"
               value={this.state.partyDetails.title}
               onChange={this.handleChanges}
-            />
+            /> */}
 
             <label>Theme</label>
             <input
@@ -117,10 +117,10 @@ class Home extends React.Component {
               </label>
 
               <input
-              name="date"
-              value={this.state.partyDetails.date}
-              onChange={this.handleChanges}
-            />
+               name="date"
+               value={this.state.partyDetails.date}
+               onChange={this.handleChanges}
+             />
               <label>
                 Budget{" "}
                 <input
@@ -130,7 +130,7 @@ class Home extends React.Component {
                 />
               </label>
               </div>
-                <div className="message"></div>
+                <div className="message">{this.props.message}</div>
               <button>{this.props.creating ? 	<Loader type="ThreeDots" color="#fff" height={20} width={40} /> : 'Create Party'}</button>
             
           </form>
