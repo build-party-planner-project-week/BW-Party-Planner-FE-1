@@ -20,30 +20,44 @@ const initialState = {
   budget: 100,
   date: "",
   todoList: [
- //I think server would have to add ids
+    //I think server would have to add ids
   ],
   creating: false,
   addingItem: false, //maybe used to indicate that user is adding item to todo or shopping list and is communicating with server
   shoppingList: [],
-  error: null
+  message: null
 };
- 
+
 export default (state = initialState, action) => {
   switch (action.type) {
     case CREATE_PARTY_START:
       return {
         ...state,
-        creating: true
-      }
-      case GET_PARTIES: 
+        creating: true,
+        message: null
+      };
+    case CREATE_PARTY_SUCCESS:
       return {
         ...state,
+        creating: false,
+        message: `${action.payload} was successfully created!`
+      };
+
+    case CREATE_PARTY_FAILED:
+      return {
+        ...state,
+        creating: false,
+        message: `Couldn't create ${action.payload} party ${action.err}`
       }
-      case GET_PARTIES_SUCCESS:
-        return {
-          ...state,
-          parties: action.payload
-        }
+    case GET_PARTIES:
+      return {
+        ...state
+      };
+    case GET_PARTIES_SUCCESS:
+      return {
+        ...state,
+        parties: action.payload
+      };
     case ADD_TODO_START:
       return {
         ...state

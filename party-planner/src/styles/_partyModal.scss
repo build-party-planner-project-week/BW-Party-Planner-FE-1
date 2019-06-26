@@ -37,3 +37,10 @@
   justify-content: space-between;
   align-items: center
 }
+.styles_closeIcon__1QwbI {
+    transition: .2s all ease-out;
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.5)
+    }
+}

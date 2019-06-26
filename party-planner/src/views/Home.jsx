@@ -130,7 +130,7 @@ class Home extends React.Component {
                 />
               </label>
               </div>
-
+                <div className="message"></div>
               <button>{this.props.creating ? 	<Loader type="ThreeDots" color="#fff" height={20} width={40} /> : 'Create Party'}</button>
             
           </form>
@@ -145,7 +145,8 @@ const mapStateToProps = state => {
   return {
     parties: state.partyReducer.parties,
     user_id: state.loginReducer.user_id,
-    creating: state.partyReducer.creating
+    creating: state.partyReducer.creating,
+    message: state.partyReducer.message
   };
 };
 
