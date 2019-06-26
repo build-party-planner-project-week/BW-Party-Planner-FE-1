@@ -20,12 +20,13 @@ class Party extends React.Component {
     this.props.deleteTodo(todoId)
   }
   render() {
-
+    const {guests, theme, date, budget} = this.props.party
     return (
       <div className="party">
         <h2 className="party-title">Sam's Birthday</h2>
-        <h4><span>Party Theme:</span> Game of Thrones</h4>
-        <h5><span>Date:</span></h5>
+        <h4><span>Party Theme:</span> {theme}</h4>
+        <h4><span>Guests:</span>{guests}</h4>
+        <h5><span>Date:</span>{date}</h5>
         <h5><span>Budget:</span>${this.props.budget.budget}</h5>
 
 

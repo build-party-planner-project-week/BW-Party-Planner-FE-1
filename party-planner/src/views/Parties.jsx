@@ -6,9 +6,11 @@ class Parties extends React.Component {
 
   render() {
     //List of parties
+
     return (
       <div className="party-list">
-        <Party />
+        {this.props.parties.map((party, i) => <Party party={party} key={i}/>)}
+        {/* <Party /> */}
       </div>
     );
   }

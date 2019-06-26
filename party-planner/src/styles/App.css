@@ -11,9 +11,10 @@
   border-radius: 5px;
   padding: 10px;
   min-height: 300px;
-  background: #f9cfe1;
+  background: linear-gradient(#fff, #f9cfe1);
   min-width: 400px;
-  font-family: "Elsie", cursive; }
+  font-family: "Elsie", cursive;
+  box-shadow: 0 5px 10px #e5106c; }
   .party span {
     font-family: "Josefin Sans", sans-serif;
     font-weight: 300; }
@@ -28,6 +29,14 @@
 hr {
   width: 2x;
   background: #fff; }
+
+.party-form input {
+  padding: 5px 10px;
+  border-radius: 50px;
+  background: transparent;
+  border: 1px solid #8d99ae; }
+  .party-form input:focus {
+    outline: none; }
 
 .party-list {
   display: flex;

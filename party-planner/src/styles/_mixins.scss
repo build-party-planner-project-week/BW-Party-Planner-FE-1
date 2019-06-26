@@ -8,3 +8,13 @@
     background: $background;
     border: 2px solid $border;
 }
+
+@mixin formInput(){
+    padding:  5px 10px;
+    border-radius: 50px;
+    background: transparent;
+    border: 1px solid $accentTwo;
+    &:focus{
+        outline: none;
+    }
+}

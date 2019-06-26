@@ -26,7 +26,7 @@ class ShoppingForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleAdd}>
+      <form onSubmit={this.handleAdd} className="party-form">
         {this.props.budget && <h3>Your Budget is : {this.props.budget}</h3>}
         <input
           onChange={event => this.setState({ item: event.target.value })}

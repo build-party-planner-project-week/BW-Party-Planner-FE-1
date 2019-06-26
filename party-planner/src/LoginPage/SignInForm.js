@@ -23,13 +23,20 @@ class SignInForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.login(this.state);
+    this.props.login(this.state).then(res => {
+      if(res){
+        console.log('i worked')
+        this.props.history.push('/parties')
+      }
+    })
 
     console.log("The form was submitted with the following data:");
     console.log(this.state);
+
   }
 
   render() {
+    console.log('signin,', this.props)
     return (
       <div className='FormCenter'>
         <form className='FormFields' onSubmit={this.handleSubmit}>

@@ -8,10 +8,13 @@ import {
 import {
   CREATE_PARTY_START,
   CREATE_PARTY_SUCCESS,
-  CREATE_PARTY_FAILED
+  CREATE_PARTY_FAILED,
+  GET_PARTIES,
+  GET_PARTIES_SUCCESS
 } from "../actions/partyCreateActions";
 
 const initialState = {
+  parties: [],
   theme: "",
   guests: "",
   budget: 100,
@@ -32,6 +35,15 @@ export default (state = initialState, action) => {
         ...state,
         updating: true
       }
+      case GET_PARTIES: 
+      return {
+        ...state,
+      }
+      case GET_PARTIES_SUCCESS:
+        return {
+          ...state,
+          parties: action.payload
+        }
     case ADD_TODO_START:
       return {
         ...state

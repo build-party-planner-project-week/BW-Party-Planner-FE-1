@@ -7,9 +7,10 @@
     border-radius: 5px;
     padding: 10px;
     min-height: 300px;
-    background: $accentOne;
+    background: $party-gradient;
     min-width: 400px;
     font-family: $text-main;
+    box-shadow: 0 5px 10px $callToAction;
     span {
         font-family: $text-secondary;
         font-weight: 300;
@@ -28,5 +29,10 @@
   hr {
       width: 2x;
       background: $background;
+  }
+  .party-form {
+      input{
+          @include formInput()
+      }
   }
  
