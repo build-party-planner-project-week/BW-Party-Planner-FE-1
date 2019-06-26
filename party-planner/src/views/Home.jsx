@@ -14,14 +14,16 @@ class Home extends React.Component {
       date: "",
       budget: "",
       user_id: null
-    }
+    },
+    parties: []
   };
   componentDidMount() {
     this.setState({
     partyDetails: {
       ...this.state.partyDetails,
-      user_id: this.props.user_id
-    }
+      user_id: localStorage.getItem('user_id')
+    },
+    parties: this.props.getParties(localStorage.getItem('user_id'))
     });
   }
   handleChanges = e => {
@@ -38,6 +40,15 @@ class Home extends React.Component {
   createParty = e => {
     e.preventDefault();
     this.props.createParty(this.state.partyDetails);
+    this.setState({
+      partyDetails : {
+        ...this.state.partyDetails,
+        guests: "",
+        theme: "",
+        date: "",
+        budget: "",
+      }
+    })
   };
 
   render() {
@@ -89,7 +100,7 @@ class Home extends React.Component {
             <button>Create Party</button>
           </form>
         </Modal>
-        <Parties />
+        <Parties parties={this.props.parties}/>
       </div>
     );
   }

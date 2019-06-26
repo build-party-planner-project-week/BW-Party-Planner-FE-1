@@ -9,7 +9,8 @@ import {
   CREATE_PARTY_START,
   CREATE_PARTY_SUCCESS,
   CREATE_PARTY_FAILED,
-  GET_PARTIES
+  GET_PARTIES,
+  GET_PARTIES_SUCCESS
 } from "../actions/partyCreateActions";
 
 const initialState = {
@@ -37,8 +38,12 @@ export default (state = initialState, action) => {
       case GET_PARTIES: 
       return {
         ...state,
-        parties: action.payload
       }
+      case GET_PARTIES_SUCCESS:
+        return {
+          ...state,
+          parties: action.payload
+        }
     case ADD_TODO_START:
       return {
         ...state
