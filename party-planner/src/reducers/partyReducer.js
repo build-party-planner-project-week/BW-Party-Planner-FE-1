@@ -22,7 +22,7 @@ const initialState = {
   todoList: [
  //I think server would have to add ids
   ],
-  updating: false,
+  creating: false,
   addingItem: false, //maybe used to indicate that user is adding item to todo or shopping list and is communicating with server
   shoppingList: [],
   error: null
@@ -33,7 +33,7 @@ export default (state = initialState, action) => {
     case CREATE_PARTY_START:
       return {
         ...state,
-        updating: true
+        creating: true
       }
       case GET_PARTIES: 
       return {

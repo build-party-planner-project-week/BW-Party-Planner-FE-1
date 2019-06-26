@@ -4,13 +4,14 @@ import { connect } from "react-redux";
 import { createParty, getParties } from "../actions/partyCreateActions";
 import Modal from "react-responsive-modal";
 import DatePicker from "react-datepicker";
+import Loader from 'react-loader-spinner';
 import "react-datepicker/dist/react-datepicker.css";
 
 class Home extends React.Component {
   state = {
     openModal: false,
     partyDetails: {
-      // title: "",
+      title: "",
       guests: "",
       theme: "",
       date: "",
@@ -62,17 +63,16 @@ class Home extends React.Component {
   };
 
   render() {
-    console.log(this.state)
     return (
       <div>
         <button onClick={this.openModal} className="create-party">
           Add new party
         </button>
-        <button
+        {/* <button
           onClick={() => this.props.getParties(localStorage.getItem("user_id"))}
         >
           Get parties
-        </button>
+        </button> */}
         <Modal
           className="party-modal"
           open={this.state.openModal}
@@ -81,11 +81,11 @@ class Home extends React.Component {
           <h2>Make your party!</h2>
           <form onSubmit={this.createParty}>
             <label>Party title</label>
-            {/* <input
+            <input
               name="title"
               value={this.state.partyDetails.title}
               onChange={this.handleChanges}
-            /> */}
+            />
 
             <label>Theme</label>
             <input
@@ -105,7 +105,7 @@ class Home extends React.Component {
 
               <label>
                 Date{" "}
-                <DatePicker
+                {/* <DatePicker
                   selected={this.state.partyDetails.date}
                   onChange={this.dateChange}
                   showTimeSelect
@@ -113,14 +113,14 @@ class Home extends React.Component {
                   timeIntervals={15}
                   dateFormat="MMMM d, yyyy h:mm aa"
                   timeCaption="time"
-                />
+                /> */}
               </label>
 
-              {/* <input
+              <input
               name="date"
               value={this.state.partyDetails.date}
               onChange={this.handleChanges}
-            /> */}
+            />
               <label>
                 Budget{" "}
                 <input
@@ -131,7 +131,7 @@ class Home extends React.Component {
               </label>
               </div>
 
-              <button>Create Party</button>
+              <button>{this.props.creating ? 	<Loader type="ThreeDots" color="#fff" height={20} width={40} /> : 'Create Party'}</button>
             
           </form>
         </Modal>
@@ -144,7 +144,8 @@ class Home extends React.Component {
 const mapStateToProps = state => {
   return {
     parties: state.partyReducer.parties,
-    user_id: state.loginReducer.user_id
+    user_id: state.loginReducer.user_id,
+    creating: state.partyReducer.creating
   };
 };
 
