@@ -10,10 +10,10 @@
 }
 
 @mixin formInput(){
-    padding: 5px;
-    border-radius: 10px;
+    padding:  5px 10px;
+    border-radius: 50px;
     background: transparent;
-    border: 1px solid $callToAction;
+    border: 1px solid $accentTwo;
     &:focus{
         outline: none;
     }

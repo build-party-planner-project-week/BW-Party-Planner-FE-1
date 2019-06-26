@@ -11,8 +11,8 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* <PrivateRoute exact path="/parties" component={Home} />
-        <Route path="/" component={LoginPage} /> */}
+        <PrivateRoute exact path="/parties" component={Home} />
+        <Route path="/" component={LoginPage} />
         <Home />
       </div>
     </Router>
