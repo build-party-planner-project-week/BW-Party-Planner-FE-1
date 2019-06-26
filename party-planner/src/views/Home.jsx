@@ -1,20 +1,29 @@
 import React from "react";
 import Parties from "./Parties";
 import { connect } from "react-redux";
-import { createParty } from "../actions/partyCreateActions";
+import { createParty, getParties } from "../actions/partyCreateActions";
 import Modal from "react-responsive-modal";
 
 class Home extends React.Component {
   state = {
     openModal: false,
     partyDetails: {
-      title: "",
+      // title: "",
       guests: "",
       theme: "",
       date: "",
-      budget: ""
+      budget: "",
+      user_id: null
     }
   };
+  componentDidMount() {
+    this.setState({
+    partyDetails: {
+      ...this.state.partyDetails,
+      user_id: this.props.user_id
+    }
+    });
+  }
   handleChanges = e => {
     this.setState({
       partyDetails: {
@@ -32,24 +41,26 @@ class Home extends React.Component {
   };
 
   render() {
-    console.log('rendering home')
+
     return (
       <div>
         <button onClick={this.openModal} className="create-party">
           Add new party
         </button>
+        <button onClick={() => this.props.getParties(localStorage.getItem('user_id'))}>Get parties</button>
         <Modal
           className="party-modal"
           open={this.state.openModal}
           onClose={() => this.setState({ openModal: false })}
-        ><h2>Make your party!</h2>
+        >
+          <h2>Make your party!</h2>
           <form onSubmit={this.createParty}>
             <label>Party title</label>
-            <input
+            {/* <input
               name="title"
               value={this.state.partyDetails.title}
               onChange={this.handleChanges}
-            />
+            /> */}
             <label>Number of guests</label>
             <input
               name="guests"
@@ -84,7 +95,14 @@ class Home extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    parties: state.partyReducer.parties,
+    user_id: state.loginReducer.user_id
+  };
+};
+
 export default connect(
-  null,
-  { createParty }
+  mapStateToProps,
+  { createParty, getParties }
 )(Home);

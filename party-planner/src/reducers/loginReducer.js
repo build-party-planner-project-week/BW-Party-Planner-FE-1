@@ -12,7 +12,8 @@ const initialState = {
   fetchingData: false,
   loggingIn: false,
   isRegistering: false,
-  registerSuccessful: false
+  registerSuccessful: false,
+  user_id: null
 };
 
 export const loginReducer = (state = initialState, action) => {
@@ -27,7 +28,8 @@ export const loginReducer = (state = initialState, action) => {
       return {
         ...state,
         loggingIn: false,
-        error: ""
+        error: "",
+        user_id: action.payload.user_id
       };
     case LOGIN_FAILURE:
       return {
