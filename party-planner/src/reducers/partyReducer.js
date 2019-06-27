@@ -12,13 +12,13 @@ import {
   GET_PARTIES,
   GET_PARTIES_SUCCESS
 } from "../actions/partyCreateActions";
-import {UPDATE_BUDGET} from '../reducers/shoppingReducer'
+import {ADD_BUDGET, UPDATE_BUDGET, ADD} from '../reducers/shoppingReducer'
 
 const initialState = {
   parties: [],
   theme: "",
   guests: "",
-  budget: 100,
+  budget: '',
   date: "",
   todoList: [
   ],
@@ -60,8 +60,36 @@ export default (state = initialState, action) => {
         parties: action.payload,
         creating: false
       };
+      case ADD_BUDGET:
+        return {
+          ...state,
+          parties: state.parties.map(party => {
+            if(party.party_id === action.payload.partyId){
+              party.budget = action.payload.budget
+              return party
+            } else {
+              return party
+            }
+          })
+        }
+        // case ADD:
+        //     let newParties = state.parties.map(party => {
+        //       if(party.party_id === action.payload.partyId){
+        //         if(!party.items){
+        //           party.items = []
+        //         } party.items.push(action.payload.item)
+        //         return party
+        //       } else {
+        //         return party
+        //       }
+        //     })
+
+        //     return {
+        //         ...state,
+        //         parties: newParties
+        //     }
+    
       case UPDATE_BUDGET:
-        console.log(action.payload)
         return {
           ...state,
           // parties: state.parties.map(party)

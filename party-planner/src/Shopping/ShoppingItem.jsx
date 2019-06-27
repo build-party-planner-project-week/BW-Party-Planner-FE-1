@@ -39,6 +39,7 @@ class ShoppingItem extends Component {
   };
 
   render() {
+    // console.log('testing', this.props.item)
     return (
       <div>
         <Modal

@@ -8,7 +8,7 @@ import { deleteParty } from "../actions/partyCreateActions";
 
 class Party extends React.Component {
   componentDidMount() {
-    console.log("getting todos");
+
     this.props.getTodos(this.props.party.id);
   }
   deleteParty = () => {
@@ -25,7 +25,7 @@ class Party extends React.Component {
     this.props.deleteTodo(todoId);
   };
   render() {
-    const { guests, theme, date, budget, title, party_id } = this.props.party;
+    const { guests, theme, date, budget, title, party_id, items } = this.props.party;
     return (
       <div className="party">
         <button onClick={this.deleteParty}>Delete</button>
@@ -37,6 +37,7 @@ class Party extends React.Component {
           <span>Guests:</span>
           {guests}
         </h4>
+    
         <h5>
           <span>Date:</span>
           {moment(date).format("dddd, MMMM Do  h: a")}
@@ -51,7 +52,7 @@ class Party extends React.Component {
             deleteTodoItem={this.deleteTodoItem}
           />
           <hr />
-          <ShoppingContainer budget={budget} party_id={party_id} />
+          <ShoppingContainer budget={budget} party_id={party_id} items={items}/>
         </div>
       </div>
     );
