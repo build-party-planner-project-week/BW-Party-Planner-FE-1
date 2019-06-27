@@ -17,7 +17,7 @@ class Home extends React.Component {
       guests: "",
       theme: "",
       date: "",
-      budget: "$",
+      budget: "",
       user_id: null
     },
     parties: []
@@ -106,6 +106,7 @@ class Home extends React.Component {
                 Guests{" "}
                 <input
                   name="guests"
+                  type="number"
                   value={this.state.partyDetails.guests}
                   onChange={this.handleChanges}
                   required
@@ -134,6 +135,7 @@ class Home extends React.Component {
                 Budget{" "}
                 <input
                   name="budget"
+                  type="number"
                   value={this.state.partyDetails.budget}
                   onChange={this.handleChanges}
                   required

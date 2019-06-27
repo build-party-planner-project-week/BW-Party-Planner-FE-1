@@ -9,6 +9,7 @@ export const login = creds => dispatch => {
   return axios
     .post("https://bwpartyplanner.herokuapp.com/api/user/login", creds)
     .then(res => {
+      console.log(res)
       localStorage.setItem("token", res.data.token);
       localStorage.setItem('user_id', res.data.user_id)
 

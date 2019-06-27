@@ -15,13 +15,13 @@ export const ADD_TODO_START = "ADD_TODO";
 export const ADD_TODO_SUCCESS = "ADD_TODO_SUCCESS";
 export const ADD_TODO_FAILED = "ADD_TODO_FAILED";
 
-export const addTodo = (todo, partyId) => dispatch => {
-  dispatch({ type: ADD_TODO_START });
+export const addTodo = (todo) => dispatch => {
+  dispatch({ type: ADD_TODO_START, payload: todo });
   //make axios request and dispatch other actions based on resolved or rejected
   axiosWithAuth()
-    .post(`/todolist/${partyId}`, todo)
+    .post(`/28/todolist`, todo)
     .then(res => {
-      console.log(res);
+      console.log(res.data);
       dispatch({ type: ADD_TODO_SUCCESS, payload: todo });
     })
     .catch(err => {
@@ -34,7 +34,7 @@ export const GET_TODOS_SUCCESS= "GET_TODOS_SUCCESS"
 export const GET_TODO_FAILED = "GET_TODOS_FAILED"
 export const getTodos = partyId => dispatch => {
   axiosWithAuth()
-    .get(`${partyId}/todolist`)
+    .get(`28/todolist`)
     .then(res => {
       console.log(res);
       dispatch({type: GET_TODOS_SUCCESS, payload: res.data})
