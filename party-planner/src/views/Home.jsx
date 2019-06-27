@@ -18,7 +18,7 @@ class Home extends React.Component {
       theme: "",
       date: "",
       budget: "",
-      user_id: null
+      user_id: null,
     },
     parties: []
   };
@@ -55,6 +55,7 @@ class Home extends React.Component {
   createParty = e => {
     console.log(this.state.partyDetails)
     e.preventDefault();
+    
     this.props.createParty(this.state.partyDetails);
     this.setState({
       partyDetails: {
@@ -68,17 +69,17 @@ class Home extends React.Component {
     });
   };
 
+  fileSelectedHandler = e => {
+    console.log(e.target.files[0]); 
+  }
+
   render() {
     return (
       <div>
         <button onClick={this.openModal} className="create-party">
           Add new party
         </button>
-        <button
-          onClick={() => this.props.getTodos()}
-        >
-          Get Todos
-        </button>
+
         <Modal
           className="party-modal"
           open={this.state.openModal}
@@ -101,30 +102,7 @@ class Home extends React.Component {
               onChange={this.handleChanges}
               required
             />
-            <div className="party-modal-info">
-              <label>
-                Guests{" "}
-                <input
-                  name="guests"
-                  type="number"
-                  value={this.state.partyDetails.guests}
-                  onChange={this.handleChanges}
-                  required
-                />
-              </label>
 
-              <label>
-                Date{" "}
-                {/* <DatePicker
-                  selected={this.state.partyDetails.date}
-                  onChange={this.dateChange}
-                  showTimeSelect
-                  timeFormat="HH:mm"
-                  timeIntervals={15}
-                  timeCaption="time"
-                  required
-                /> */}
-              </label>
 
               <input
                name="date"

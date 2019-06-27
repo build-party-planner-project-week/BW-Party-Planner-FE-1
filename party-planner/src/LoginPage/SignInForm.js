@@ -24,16 +24,10 @@ class SignInForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.login(this.state).then(res => {
-      if(res){
-        this.props.history.push('/parties')
+
       }
-    })
+    });
 
-    // console.log("The form was submitted with the following data:");
-
-  }
-
-  render() {
 
     return (
       <div className='FormCenter'>
