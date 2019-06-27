@@ -58,7 +58,7 @@ class Home extends React.Component {
         <button onClick={this.openModal} className="create-party">
           Add new party
         </button>
-        <button onClick={() => this.props.getParties(localStorage.getItem('user_id'))}>Get parties</button>
+        <button className='getPartiesButton' onClick={() => this.props.getParties(localStorage.getItem('user_id'))}>Get parties</button>
         <Modal
           className="party-modal"
           open={this.state.openModal}

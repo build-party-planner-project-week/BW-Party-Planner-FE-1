@@ -41,7 +41,7 @@ class ShoppingForm extends Component {
           value={this.props.budget || this.state.budget}
           placeholder='Enter Budget Here'
         />
-        <button>Submit</button>
+        <button classname='shoppingSubmit'>Submit</button>
       </form>
     );
   }

@@ -11,6 +11,7 @@
     min-width: 400px;
     font-family: $text-main;
     box-shadow: 0 5px 10px $callToAction;
+    margin: 20px; 
     span {
         font-family: $text-secondary;
         font-weight: 300;
@@ -35,4 +36,5 @@
           @include formInput()
       }
   }
- 
+
+
