@@ -1,23 +1,76 @@
 .styles_modal__gNwvD {
-    height: 400px;
-    width: 800px;
-    padding: 40px;
-    h2 {
-        font-family: $text-main;
-        margin-bottom: 10px;
+  height: 400px;
+  width: 800px;
+  padding: 40px;
+  h2 {
+    font-family: $text-main;
+    margin-bottom: 10px;
+  }
+  form {
+    font-family: $text-secondary;
+    display: flex;
+    flex-direction: column;
+    input {
+      margin-bottom: 10px;
     }
-    form {
-        font-family: $text-secondary;
-        display: flex;
-        flex-direction: column;
-        input {
-            margin-bottom: 10px;
-        }
-        button {
-            @include btn($callToAction, $background)
-        }
+    button {
+      @include btn($callToAction, $background);
     }
+  }
 }
-.party-modal {
+// .party-modal {
+// }
 
+.getPartiesButton {
+  height: 30px;
+  width: 80px;
+  color: #e5106c;
+  background-color: white;
+  border-radius: 7px;
+  border: 1px solid #e5106c;
+
+  &:hover {
+    background-color: #e5106c;
+    color: white;
+    border: 1px solid #e5106c;
+  }
+}
+
+.create-party {
+  height: 50px;
+  width: 200px;
+  color: white;
+  background-color: #e5106c;
+  border-radius: 7px;
+  border: none;
+
+  &:hover {
+    background-color: white;
+    color: #e5106c;
+    border: 1px solid #e5106c;
+  } 
+}
+
+.party-split {
+  margin-top: 10px; 
+}
+
+.shopping-submit{
+  margin-top: 5px; 
+  height: 30px;
+  width: 50px;
+  color: white;
+  background-color: #e5106c;
+  border-radius: 7px;
+  border: none;
+
+  &:hover {
+    background-color: white;
+    color: #e5106c;
+    border: 1px solid #e5106c;
+  }
+}
+
+.inputbar {
+  font-style: italic
 }

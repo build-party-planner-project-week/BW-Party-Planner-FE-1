@@ -4,13 +4,14 @@
     flex-direction: column;
     border: 2px solid $accentTwo;
     letter-spacing: 1px;
-    border-radius: 5px;
+    border-radius: 7px;
     padding: 10px;
     min-height: 300px;
     background: $party-gradient;
     min-width: 400px;
     font-family: $text-main;
     box-shadow: 0 5px 10px $callToAction;
+    margin: 20px; 
     span {
         font-family: $text-secondary;
         font-weight: 300;
@@ -35,4 +36,5 @@
           @include formInput()
       }
   }
- 
+
+

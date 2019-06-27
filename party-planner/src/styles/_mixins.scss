@@ -11,9 +11,9 @@
 
 @mixin formInput(){
     padding:  5px 10px;
-    border-radius: 50px;
+    border-radius: 0px;
     background: transparent;
-    border: 1px solid $accentTwo;
+    border-bottom: 1px solid $accentTwo;
     &:focus{
         outline: none;
     }

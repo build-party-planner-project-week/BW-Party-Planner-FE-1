@@ -13,7 +13,7 @@ class Home extends React.Component {
       theme: "",
       date: "",
       budget: "",
-      user_id: null
+      user_id: null,
     },
     parties: []
   };
@@ -39,6 +39,7 @@ class Home extends React.Component {
   };
   createParty = e => {
     e.preventDefault();
+    
     this.props.createParty(this.state.partyDetails);
     this.setState({
       partyDetails : {
@@ -51,6 +52,10 @@ class Home extends React.Component {
     })
   };
 
+  fileSelectedHandler = e => {
+    console.log(e.target.files[0]); 
+  }
+
   render() {
 
     return (
@@ -58,7 +63,7 @@ class Home extends React.Component {
         <button onClick={this.openModal} className="create-party">
           Add new party
         </button>
-        <button onClick={() => this.props.getParties(localStorage.getItem('user_id'))}>Get parties</button>
+        <button className='getPartiesButton' onClick={() => this.props.getParties(localStorage.getItem('user_id'))}>Get parties</button>
         <Modal
           className="party-modal"
           open={this.state.openModal}
@@ -96,6 +101,8 @@ class Home extends React.Component {
               value={this.state.partyDetails.budget}
               onChange={this.handleChanges}
             />
+            {/* <label>Upload Picture</label>
+            <input type='file' onChange={this.handleChanges} /> */}
 
             <button>Create Party</button>
           </form>
