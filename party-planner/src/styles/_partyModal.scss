@@ -18,12 +18,47 @@
     }
   }
 }
-.party-modal {
-}
+// .party-modal {
+// }
 
 .getPartiesButton {
   height: 30px;
   width: 80px;
+  color: #e5106c;
+  background-color: white;
+  border-radius: 7px;
+  border: 1px solid #e5106c;
+
+  &:hover {
+    background-color: #e5106c;
+    color: white;
+    border: 1px solid #e5106c;
+  }
+}
+
+.create-party {
+  height: 50px;
+  width: 200px;
+  color: white;
+  background-color: #e5106c;
+  border-radius: 7px;
+  border: none;
+
+  &:hover {
+    background-color: white;
+    color: #e5106c;
+    border: 1px solid #e5106c;
+  } 
+}
+
+.party-split {
+  margin-top: 10px; 
+}
+
+.shopping-submit{
+  margin-top: 5px; 
+  height: 30px;
+  width: 50px;
   color: white;
   background-color: #e5106c;
   border-radius: 7px;
@@ -34,4 +69,8 @@
     color: #e5106c;
     border: 1px solid #e5106c;
   }
+}
+
+.inputbar {
+  font-style: italic
 }
