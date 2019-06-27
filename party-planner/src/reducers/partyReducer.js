@@ -60,6 +60,7 @@ export default (state = initialState, action) => {
         parties: action.payload,
         creating: false
       };
+   
     case ADD_TODO_START:
       return {
         ...state

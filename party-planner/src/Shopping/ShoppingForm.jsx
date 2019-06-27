@@ -4,11 +4,11 @@ import { addItem, addBudget } from "../actions/shoppingActions";
 
 
 class ShoppingForm extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       item: "",
-      budget: ""
+      budget: this.props.partyBudget
     };
   }
 
