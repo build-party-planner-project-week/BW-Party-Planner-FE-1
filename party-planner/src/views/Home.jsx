@@ -67,7 +67,6 @@ class Home extends React.Component {
   };
 
   render() {
-    console.log(this.state)
     return (
       <div>
         <button onClick={this.openModal} className="create-party">

@@ -29,11 +29,15 @@ export const addTodo = todo => dispatch => {
     });
 };
 
-export const getTodos = () => dispatch => {
+export const GET_TODOS_START = "GET_TODOS_START"
+export const GET_TODOS_SUCCESS= "GET_TODOS_SUCCESS"
+export const GET_TODO_FAILED = "GET_TODOS_FAILED"
+export const getTodos = partyId => dispatch => {
   axiosWithAuth()
-    .get(`todolist`)
+    .get(`${partyId}/todolist`)
     .then(res => {
       console.log(res);
+      
     })
     .catch(err => {
       console.log(err);

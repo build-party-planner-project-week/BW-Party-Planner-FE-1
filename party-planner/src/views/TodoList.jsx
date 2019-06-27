@@ -23,7 +23,6 @@ class TodoList extends React.Component {
   };
 
   render() {
-    console.log(this.props)
     return (
       <div>
         <h3>TodoList</h3>

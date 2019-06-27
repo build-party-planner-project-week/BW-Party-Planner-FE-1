@@ -26,7 +26,7 @@ class Party extends React.Component {
   }
   render() {
     const {guests, theme, date, budget} = this.props.party;
-    console.log(moment(date).format("dddd, MMMM Do YYYY"))
+    console.log(this.props.party.id)
     return (
       <div className="party">
         <button onClick={this.deleteParty}>Delete</button>
