@@ -147,7 +147,7 @@ class Home extends React.Component {
             
           </form>
         </Modal>
-        <Parties parties={this.props.parties} />
+        <Parties parties={this.props.parties} fetching={this.props.creating}/>
       </div>
     );
   }

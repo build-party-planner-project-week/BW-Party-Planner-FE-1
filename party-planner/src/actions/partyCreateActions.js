@@ -28,13 +28,17 @@ export const createParty = partyInfo => dispatch => {
 
 export const getParties = id => dispatch => {
   dispatch({ type: GET_PARTIES });
-  axiosWithAuth()
-    .get(`${id}/party`)
-    .then(res => {
-      console.log('parties success')
-      dispatch({type: GET_PARTIES_SUCCESS, payload: res.data})
-    })
-    .catch(err => console.log(err))
+  setTimeout(() => {
+
+    axiosWithAuth()
+      .get(`${id}/party`)
+      .then(res => {
+        
+        console.log('parties success')
+        dispatch({type: GET_PARTIES_SUCCESS, payload: res.data})
+      })
+      .catch(err => console.log(err))
+  }, 3000)
 };
 
 export const deleteParty = partyId => dispatch => {

@@ -51,12 +51,14 @@ export default (state = initialState, action) => {
       }
     case GET_PARTIES:
       return {
-        ...state
+        ...state,
+        creating: true
       };
     case GET_PARTIES_SUCCESS:
       return {
         ...state,
-        parties: action.payload
+        parties: action.payload,
+        creating: false
       };
     case ADD_TODO_START:
       return {
