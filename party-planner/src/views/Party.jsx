@@ -2,6 +2,7 @@ import React from "react";
 import TodoList from "./TodoList";
 import ShoppingContainer from '../Shopping/ShoppingContainer'
 import { connect } from "react-redux";
+import moment from 'moment';
 import { addTodo, toggleTodo, deleteTodo } from "../actions";
 import {deleteParty} from '../actions/partyCreateActions'
 
@@ -25,13 +26,14 @@ class Party extends React.Component {
   }
   render() {
     const {guests, theme, date, budget} = this.props.party;
+    console.log(moment(date).format("dddd, MMMM Do YYYY"))
     return (
       <div className="party">
         <button onClick={this.deleteParty}>Delete</button>
         <h2 className="party-title">Sam's Birthday</h2>
         <h4><span>Party Theme:</span> {theme}</h4>
         <h4><span>Guests:</span>{guests}</h4>
-        <h5><span>Date:</span>{date}</h5>
+        <h5><span>Date:</span>{moment(date).format('dddd, MMMM Do  h: a')}</h5>
         <h5><span>Budget:</span>${this.props.budget.budget}</h5>
 
 

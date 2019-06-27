@@ -2,7 +2,9 @@ import React from "react";
 import Parties from "./Parties";
 import { connect } from "react-redux";
 import { createParty, getParties } from "../actions/partyCreateActions";
+import {getTodos} from '../actions/index'
 import Modal from "react-responsive-modal";
+import moment from 'moment'
 import DatePicker from "react-datepicker";
 import Loader from 'react-loader-spinner';
 import "react-datepicker/dist/react-datepicker.css";
@@ -41,12 +43,14 @@ class Home extends React.Component {
     this.setState({ openModal: true });
   };
   dateChange = date => {
+    const dateToString = moment(date)
     this.setState({
       partyDetails: {
         ...this.state.partyDetails,
         date: date
       }
     });
+    console.log(typeof dateToString);
   };
   createParty = e => {
     e.preventDefault();
@@ -63,16 +67,17 @@ class Home extends React.Component {
   };
 
   render() {
+    console.log(this.state)
     return (
       <div>
         <button onClick={this.openModal} className="create-party">
           Add new party
         </button>
-        {/* <button
-          onClick={() => this.props.getParties(localStorage.getItem("user_id"))}
+        <button
+          onClick={() => this.props.getTodos()}
         >
-          Get parties
-        </button> */}
+          Get Todos
+        </button>
         <Modal
           className="party-modal"
           open={this.state.openModal}
@@ -105,22 +110,21 @@ class Home extends React.Component {
 
               <label>
                 Date{" "}
-                {/* <DatePicker
+                <DatePicker
                   selected={this.state.partyDetails.date}
                   onChange={this.dateChange}
                   showTimeSelect
                   timeFormat="HH:mm"
                   timeIntervals={15}
-                  dateFormat="MMMM d, yyyy h:mm aa"
                   timeCaption="time"
-                /> */}
+                />
               </label>
 
-              <input
+              {/* <input
                name="date"
                value={this.state.partyDetails.date}
                onChange={this.handleChanges}
-             />
+             /> */}
               <label>
                 Budget{" "}
                 <input
@@ -152,5 +156,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { createParty, getParties }
+  { createParty, getParties, getTodos }
 )(Home);
