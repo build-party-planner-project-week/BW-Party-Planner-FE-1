@@ -1,12 +1,14 @@
 
   .party-list {
     display: flex;
+    flex-direction: column; 
     justify-content: space-between;
     align-items: center;
-    border: 1px solid #000;
+    border: 1px solid $accentTwo;
     width: 80%;
     margin: 0 auto;
     min-height: 600px;
+    
   }
   .create-party {
       @include btn($accentTwo, $accentTwo)
