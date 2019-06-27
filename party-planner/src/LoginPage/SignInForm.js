@@ -25,59 +25,54 @@ class SignInForm extends Component {
     e.preventDefault();
     this.props.login(this.state).then(res => {
       if (res) {
-        console.log("i worked");
         this.props.history.push("/parties");
       }
     });
-
-    console.log("The form was submitted with the following data:");
-    console.log(this.state);
   }
 
   render() {
-    console.log("signin,", this.props);
     return (
-      <div className='FormCenter'>
-        <form className='FormFields' onSubmit={this.handleSubmit}>
-          <div className='FormField'>
-            <label className='FormField__Label' htmlFor='username'>
+      <div className="FormCenter">
+        <form className="FormFields" onSubmit={this.handleSubmit}>
+          <div className="FormField">
+            <label className="FormField__Label" htmlFor="username">
               Username
             </label>
             <input
-              type='text'
-              id='username'
-              className='FormField__Input'
-              placeholder='Enter your username'
-              name='username'
+              type="text"
+              id="username"
+              className="FormField__Input"
+              placeholder="Enter your username"
+              name="username"
               value={this.state.username}
               onChange={this.handleChange}
             />
           </div>
 
-          <div className='FormField'>
-            <label className='FormField__Label' htmlFor='password'>
+          <div className="FormField">
+            <label className="FormField__Label" htmlFor="password">
               Password
             </label>
             <input
-              type='password'
-              id='password'
-              className='FormField__Input'
-              placeholder='Enter your password'
-              name='password'
+              type="password"
+              id="password"
+              className="FormField__Input"
+              placeholder="Enter your password"
+              name="password"
               value={this.state.password}
               onChange={this.handleChange}
             />
           </div>
 
-          <div className='FormField'>
-            <button className='FormField__Button mr-20'>
+          <div className="FormField">
+            <button className="FormField__Button mr-20">
               {this.props.isLoggingIn ? (
-                <Loader type='ThreeDots' color='black' height='12' width='26' />
+                <Loader type="ThreeDots" color="black" height="12" width="26" />
               ) : (
                 "Log in"
               )}
             </button>{" "}
-            <Link to='/' className='FormField__Link'>
+            <Link to="/" className="FormField__Link">
               Create an account
             </Link>
           </div>
@@ -86,6 +81,7 @@ class SignInForm extends Component {
     );
   }
 }
+
 const mapStateToProps = state => ({
   error: state.error,
   loggingIn: state.loggingIn

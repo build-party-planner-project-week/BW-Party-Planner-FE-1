@@ -8,13 +8,14 @@
   flex-direction: column;
   border: 2px solid #8d99ae;
   letter-spacing: 1px;
-  border-radius: 5px;
+  border-radius: 7px;
   padding: 10px;
   min-height: 300px;
   background: linear-gradient(#fff, #f9cfe1);
   min-width: 400px;
   font-family: "Elsie", cursive;
-  box-shadow: 0 5px 10px #e5106c; }
+  box-shadow: 0 5px 10px #e5106c;
+  margin: 20px; }
   .party span {
     font-family: "Josefin Sans", sans-serif;
     font-weight: 300; }
@@ -32,17 +33,18 @@ hr {
 
 .party-form input {
   padding: 5px 10px;
-  border-radius: 50px;
+  border-radius: 0px;
   background: transparent;
-  border: 1px solid #8d99ae; }
+  border-bottom: 1px solid #8d99ae; }
   .party-form input:focus {
     outline: none; }
 
 .party-list {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #000;
+  border: 1px solid #8d99ae;
   width: 80%;
   margin: 0 auto;
   min-height: 600px; }
@@ -82,5 +84,48 @@ hr {
       margin: 10px;
       background: #e5106c;
       border: 2px solid #fff; }
+
+.getPartiesButton {
+  height: 30px;
+  width: 80px;
+  color: #e5106c;
+  background-color: white;
+  border-radius: 7px;
+  border: 1px solid #e5106c; }
+  .getPartiesButton:hover {
+    background-color: #e5106c;
+    color: white;
+    border: 1px solid #e5106c; }
+
+.create-party {
+  height: 50px;
+  width: 200px;
+  color: white;
+  background-color: #e5106c;
+  border-radius: 7px;
+  border: none; }
+  .create-party:hover {
+    background-color: white;
+    color: #e5106c;
+    border: 1px solid #e5106c; }
+
+.party-split {
+  margin-top: 10px; }
+
+.shopping-submit {
+  margin-top: 5px;
+  height: 30px;
+  width: 50px;
+  color: white;
+  background-color: #e5106c;
+  border-radius: 7px;
+  border: none; }
+  .shopping-submit:hover {
+    background-color: white;
+    color: #e5106c;
+    border: 1px solid #e5106c; }
+
+.inputbar {
+  font-style: italic; }
 
 /*# sourceMappingURL=App.css.map */

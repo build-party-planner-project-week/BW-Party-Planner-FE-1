@@ -1,18 +1,22 @@
 import React from "react";
-import Party from './Party'
+import Party from "./Party";
+import Loader from "react-loader-spinner";
 
 class Parties extends React.Component {
-  //class component Component Didi Mount to retrive parties from back end
 
   render() {
-    //List of parties
+      return (
+        <div className="party-list">
+          {this.props.fetching ? <Loader type="CradleLoader" color="#000" height={200} width={200} /> :
+           this.props.parties.map(party => (
+            <Party party={party} key={party.id} />
+          ))
+        
+        }
+       
+        </div>
+      );
 
-    return (
-      <div className="party-list">
-        {this.props.parties.map((party, i) => <Party party={party} key={i}/>)}
-        {/* <Party /> */}
-      </div>
-    );
   }
 }
 

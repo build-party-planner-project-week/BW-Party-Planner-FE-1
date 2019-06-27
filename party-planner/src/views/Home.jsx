@@ -2,28 +2,33 @@ import React from "react";
 import Parties from "./Parties";
 import { connect } from "react-redux";
 import { createParty, getParties } from "../actions/partyCreateActions";
+import { getTodos } from "../actions/index";
 import Modal from "react-responsive-modal";
+import moment from "moment";
+import DatePicker from "react-datepicker";
+import Loader from "react-loader-spinner";
+import "react-datepicker/dist/react-datepicker.css";
 
 class Home extends React.Component {
   state = {
     openModal: false,
     partyDetails: {
-      // title: "",
+      title: "",
       guests: "",
       theme: "",
       date: "",
       budget: "",
-      user_id: null,
+      user_id: null
     },
     parties: []
   };
   componentDidMount() {
     this.setState({
-    partyDetails: {
-      ...this.state.partyDetails,
-      user_id: localStorage.getItem('user_id')
-    },
-    parties: this.props.getParties(localStorage.getItem('user_id'))
+      partyDetails: {
+        ...this.state.partyDetails,
+        user_id: localStorage.getItem("user_id")
+      },
+      parties: this.props.getParties(localStorage.getItem("user_id"))
     });
   }
   handleChanges = e => {
@@ -37,33 +42,44 @@ class Home extends React.Component {
   openModal = () => {
     this.setState({ openModal: true });
   };
+  dateChange = date => {
+    const dateToString = moment(date);
+    this.setState({
+      partyDetails: {
+        ...this.state.partyDetails,
+        date: date
+      }
+    });
+    console.log(typeof dateToString);
+  };
   createParty = e => {
+    console.log(this.state.partyDetails);
     e.preventDefault();
-    
+
     this.props.createParty(this.state.partyDetails);
     this.setState({
-      partyDetails : {
+      partyDetails: {
         ...this.state.partyDetails,
+        title: "",
         guests: "",
         theme: "",
         date: "",
-        budget: "",
+        budget: ""
       }
-    })
+    });
   };
 
-  fileSelectedHandler = e => {
-    console.log(e.target.files[0]); 
-  }
+  // fileSelectedHandler = e => {
+  //   console.log(e.target.files[0]);
+  // }
 
   render() {
-
     return (
       <div>
         <button onClick={this.openModal} className="create-party">
           Add new party
         </button>
-        <button className='getPartiesButton' onClick={() => this.props.getParties(localStorage.getItem('user_id'))}>Get parties</button>
+
         <Modal
           className="party-modal"
           open={this.state.openModal}
@@ -72,42 +88,70 @@ class Home extends React.Component {
           <h2>Make your party!</h2>
           <form onSubmit={this.createParty}>
             <label>Party title</label>
-            {/* <input
+            <input
               name="title"
               value={this.state.partyDetails.title}
               onChange={this.handleChanges}
-            /> */}
-            <label>Number of guests</label>
-            <input
-              name="guests"
-              value={this.state.partyDetails.guests}
-              onChange={this.handleChanges}
+              required
             />
+
             <label>Theme</label>
             <input
               name="theme"
               value={this.state.partyDetails.theme}
               onChange={this.handleChanges}
+              required
             />
-            <label>Date</label>
-            <input
-              name="date"
-              value={this.state.partyDetails.date}
-              onChange={this.handleChanges}
-            />
-            <label>Budget</label>
-            <input
-              name="budget"
-              value={this.state.partyDetails.budget}
-              onChange={this.handleChanges}
-            />
-            {/* <label>Upload Picture</label>
-            <input type='file' onChange={this.handleChanges} /> */}
+            <label>
+              Guests{" "}
+              <input
+                name="guests"
+                value={this.state.partyDetails.guests}
+                onChange={this.handleChanges}
+              />
+            </label>
 
-            <button>Create Party</button>
+            <label>
+              Date
+              <DatePicker
+                selected={this.state.partyDetails.date}
+                onChange={this.dateChange}
+                showTimeSelect
+                timeFormat="HH:mm"
+                timeIntervals={15}
+                dateFormat="MMMM d, yyyy h:mm aa"
+                timeCaption="time"
+              />
+            </label>
+
+            {/* <input
+               name="date"
+               value={this.state.partyDetails.date}
+               onChange={this.handleChanges}
+             /> */}
+            <label>
+              Budget{" "}
+              <input
+                name="budget"
+                type="number"
+                value={this.state.partyDetails.budget}
+                onChange={this.handleChanges}
+                required
+              />
+            </label>
+
+            <div className="message">{this.props.message}</div>
+            <button>
+              {this.props.creating ? (
+                <Loader type="ThreeDots" color="#fff" height={20} width={40} />
+              ) : (
+                "Create Party"
+              )}
+            </button>
           </form>
         </Modal>
-        <Parties parties={this.props.parties}/>
+
+        <Parties parties={this.props.parties} fetching={this.props.creating} />
       </div>
     );
   }
@@ -116,11 +160,13 @@ class Home extends React.Component {
 const mapStateToProps = state => {
   return {
     parties: state.partyReducer.parties,
-    user_id: state.loginReducer.user_id
+    user_id: state.loginReducer.user_id,
+    creating: state.partyReducer.creating,
+    message: state.partyReducer.message
   };
 };
 
 export default connect(
   mapStateToProps,
-  { createParty, getParties }
+  { createParty, getParties, getTodos }
 )(Home);

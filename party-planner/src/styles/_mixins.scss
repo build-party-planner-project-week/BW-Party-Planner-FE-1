@@ -1,20 +1,20 @@
-@mixin btn($background, $border){
-    color: $textColor;
-    font-family: $text-secondary;
-    font-size: $font-med;
-    padding: 10px 15px;
-    border-radius: 5px;
-    margin: 10px;
-    background: $background;
-    border: 2px solid $border;
+@mixin btn($background, $border) {
+  color: $textColor;
+  font-family: $text-secondary;
+  font-size: $font-med;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: 10px;
+  background: $background;
+  border: 2px solid $border;
 }
 
-@mixin formInput(){
-    padding:  5px 10px;
-    border-radius: 0px;
-    background: transparent;
-    border-bottom: 1px solid $accentTwo;
-    &:focus{
-        outline: none;
-    }
+@mixin formInput() {
+  padding: 5px 10px;
+  border-radius: 0px;
+  background: transparent;
+  border-bottom: 1px solid $accentTwo;
+  &:focus {
+    outline: none;
+  }
 }
