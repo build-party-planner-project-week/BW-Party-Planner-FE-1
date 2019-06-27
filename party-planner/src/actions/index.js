@@ -37,10 +37,12 @@ export const getTodos = partyId => dispatch => {
     .get(`${partyId}/todolist`)
     .then(res => {
       console.log(res);
+      dispatch({type: GET_TODOS_SUCCESS, payload: res.data})
       
     })
     .catch(err => {
       console.log(err);
+      dispatch({type: GET_TODO_FAILED})
     });
 };
 

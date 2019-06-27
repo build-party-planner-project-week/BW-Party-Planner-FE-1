@@ -3,7 +3,7 @@ import TodoList from "./TodoList";
 import ShoppingContainer from '../Shopping/ShoppingContainer'
 import { connect } from "react-redux";
 import moment from 'moment';
-import { addTodo, toggleTodo, deleteTodo } from "../actions";
+import { addTodo, toggleTodo, deleteTodo, getTodos } from "../actions";
 import {deleteParty} from '../actions/partyCreateActions'
 
 //will connect to redux stare and pass info through props
@@ -11,6 +11,10 @@ class Party extends React.Component {
   state = {};
   //Render Todo list
   //render shopping list
+
+  componentDidMount(){
+
+  }
   deleteParty = () => {
     console.log(this.props.party.id)
     this.props.deleteParty(this.props.party.id)
@@ -61,5 +65,5 @@ const mapStateToProps = state => {
 };
 export default connect(
   mapStateToProps,
-  { addTodo, toggleTodo, deleteTodo, deleteParty }
+  { addTodo, toggleTodo, deleteTodo, deleteParty, getTodos }
 )(Party);
