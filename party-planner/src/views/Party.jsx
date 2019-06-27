@@ -13,14 +13,15 @@ class Party extends React.Component {
   //render shopping list
 
   componentDidMount(){
-
+    console.log('getting todos')
+    this.props.getTodos(this.props.party.id)
   }
   deleteParty = () => {
     console.log(this.props.party.id)
     this.props.deleteParty(this.props.party.id)
   }
   addTodoItem = todoItem => {
-    this.props.addTodo(todoItem);
+    this.props.addTodo(todoItem, this.props.party.id);
   };
   toggleTodoItem = todoId => {
     this.props.toggleTodo(todoId);
@@ -30,7 +31,6 @@ class Party extends React.Component {
   }
   render() {
     const {guests, theme, date, budget} = this.props.party;
-    console.log(this.props.party.id)
     return (
       <div className="party">
         <button onClick={this.deleteParty}>Delete</button>

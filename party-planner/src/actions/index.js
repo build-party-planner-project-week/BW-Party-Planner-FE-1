@@ -15,11 +15,11 @@ export const ADD_TODO_START = "ADD_TODO";
 export const ADD_TODO_SUCCESS = "ADD_TODO_SUCCESS";
 export const ADD_TODO_FAILED = "ADD_TODO_FAILED";
 
-export const addTodo = todo => dispatch => {
+export const addTodo = (todo, partyId) => dispatch => {
   dispatch({ type: ADD_TODO_START });
   //make axios request and dispatch other actions based on resolved or rejected
   axiosWithAuth()
-    .post(`/todolist/`)
+    .post(`/todolist/${partyId}`, todo)
     .then(res => {
       console.log(res);
       dispatch({ type: ADD_TODO_SUCCESS, payload: todo });
