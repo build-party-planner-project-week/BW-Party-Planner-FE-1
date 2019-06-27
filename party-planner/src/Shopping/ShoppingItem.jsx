@@ -32,13 +32,14 @@ class ShoppingItem extends Component {
       return;
     }
     this.props.toggleCompleted(this.props.index, this.state.price);
-    this.props.updateBudget(this.state.price);
+    this.props.updateBudget(this.props.party_id, this.state.price);
     this.setState({
       openModal: false
     });
   };
 
   render() {
+    // console.log('testing', this.props.item)
     return (
       <div>
         <Modal

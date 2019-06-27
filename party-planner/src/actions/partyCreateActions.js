@@ -30,7 +30,9 @@ export const getParties = id => dispatch => {
   axiosWithAuth()
     .get(`${id}/party`)
     .then(res => {
-      console.log("parties success");
+      res.data.forEach(party => {
+        party.items = []
+      })
       dispatch({ type: GET_PARTIES_SUCCESS, payload: res.data });
     })
     .catch(err => console.log(err));
