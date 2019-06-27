@@ -13,7 +13,7 @@ class Home extends React.Component {
   state = {
     openModal: false,
     partyDetails: {
-      // title: "",
+      title: "",
       guests: "",
       theme: "",
       date: "",
@@ -53,11 +53,13 @@ class Home extends React.Component {
     console.log(typeof dateToString);
   };
   createParty = e => {
+    console.log(this.state.partyDetails)
     e.preventDefault();
     this.props.createParty(this.state.partyDetails);
     this.setState({
       partyDetails: {
         ...this.state.partyDetails,
+        title: '',
         guests: "",
         theme: "",
         date: "",
@@ -85,17 +87,19 @@ class Home extends React.Component {
           <h2>Make your party!</h2>
           <form onSubmit={this.createParty}>
             <label>Party title</label>
-            {/* <input
+            <input
               name="title"
               value={this.state.partyDetails.title}
               onChange={this.handleChanges}
-            /> */}
+              required
+            />
 
             <label>Theme</label>
             <input
               name="theme"
               value={this.state.partyDetails.theme}
               onChange={this.handleChanges}
+              required
             />
             <div className="party-modal-info">
               <label>
@@ -104,32 +108,35 @@ class Home extends React.Component {
                   name="guests"
                   value={this.state.partyDetails.guests}
                   onChange={this.handleChanges}
+                  required
                 />
               </label>
 
               <label>
                 Date{" "}
-                <DatePicker
+                {/* <DatePicker
                   selected={this.state.partyDetails.date}
                   onChange={this.dateChange}
                   showTimeSelect
                   timeFormat="HH:mm"
                   timeIntervals={15}
                   timeCaption="time"
-                />
+                  required
+                /> */}
               </label>
 
-              {/* <input
+              <input
                name="date"
                value={this.state.partyDetails.date}
                onChange={this.handleChanges}
-             /> */}
+             />
               <label>
                 Budget{" "}
                 <input
                   name="budget"
                   value={this.state.partyDetails.budget}
                   onChange={this.handleChanges}
+                  required
                 />
               </label>
               </div>

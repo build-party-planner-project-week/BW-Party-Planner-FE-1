@@ -22,7 +22,7 @@ export const createParty = partyInfo => dispatch => {
     })
     .catch(err => {
 
-      dispatch({ type: CREATE_PARTY_FAILED, payload: err });
+      dispatch({ type: CREATE_PARTY_FAILED, payload: err.response });
     });
 };
 
