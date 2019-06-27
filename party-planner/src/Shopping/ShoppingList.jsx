@@ -11,7 +11,7 @@ class ShoppingList extends Component {
     return (
       <div>
         {this.props.items.map((item, index) => (
-          <ShoppingItem key={index} item={item} index={index} />
+          <ShoppingItem key={index} item={item} index={index} party_id={this.props.party_id}/>
         ))}
       </div>
     );

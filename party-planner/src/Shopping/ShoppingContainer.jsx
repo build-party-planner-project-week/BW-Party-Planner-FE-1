@@ -7,7 +7,7 @@ function ShoppingContainer(props) {
     <div className="App">
       <h3>Shopping List</h3>
       <ShoppingForm partyBudget={props.budget}/>
-      <ShoppingList />
+      <ShoppingList party_id={props.party_id}/>
     </div>
   );
 }

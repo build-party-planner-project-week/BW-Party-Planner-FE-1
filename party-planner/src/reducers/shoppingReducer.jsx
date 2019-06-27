@@ -55,7 +55,7 @@ export const budgetReducer = (state = {}, action) => {
     case UPDATE_BUDGET:
       return {
         ...state,
-        budget: state.budget - action.payload
+        budget: state.budget - action.payload.price
       };
     default:
       return { ...state };

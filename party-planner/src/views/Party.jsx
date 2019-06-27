@@ -25,8 +25,7 @@ class Party extends React.Component {
     this.props.deleteTodo(todoId);
   };
   render() {
-    console.log("props budget", this.props.budget);
-    const { guests, theme, date, budget, title } = this.props.party;
+    const { guests, theme, date, budget, title, party_id } = this.props.party;
     return (
       <div className="party">
         <button onClick={this.deleteParty}>Delete</button>
@@ -52,7 +51,7 @@ class Party extends React.Component {
             deleteTodoItem={this.deleteTodoItem}
           />
           <hr />
-          <ShoppingContainer budget={budget} />
+          <ShoppingContainer budget={budget} party_id={party_id} />
         </div>
       </div>
     );

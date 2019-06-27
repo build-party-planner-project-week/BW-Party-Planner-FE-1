@@ -12,6 +12,7 @@ import {
   GET_PARTIES,
   GET_PARTIES_SUCCESS
 } from "../actions/partyCreateActions";
+import {UPDATE_BUDGET} from '../reducers/shoppingReducer'
 
 const initialState = {
   parties: [],
@@ -20,7 +21,6 @@ const initialState = {
   budget: 100,
   date: "",
   todoList: [
-    //I think server would have to add ids
   ],
   creating: false,
   addingItem: false, //maybe used to indicate that user is adding item to todo or shopping list and is communicating with server
@@ -60,6 +60,12 @@ export default (state = initialState, action) => {
         parties: action.payload,
         creating: false
       };
+      case UPDATE_BUDGET:
+        console.log(action.payload)
+        return {
+          ...state,
+          // parties: state.parties.map(party)
+        }
    
     case ADD_TODO_START:
       return {

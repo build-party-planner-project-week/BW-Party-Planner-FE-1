@@ -19,10 +19,16 @@ export const addBudget = budget => {
     payload: budget
   };
 };
-export const updateBudget = price => {
+// export const updateBudget = price => {
+//   return {
+//     type: UPDATE_BUDGET,
+//     payload: price
+//   };
+// };
+export const updateBudget = (partyId, price) => {
   return {
     type: UPDATE_BUDGET,
-    payload: price
+    payload: {price, partyId}
   };
 };
 
