@@ -8,13 +8,14 @@
   flex-direction: column;
   border: 2px solid #8d99ae;
   letter-spacing: 1px;
-  border-radius: 5px;
+  border-radius: 7px;
   padding: 10px;
   min-height: 300px;
   background: linear-gradient(#fff, #f9cfe1);
   min-width: 400px;
   font-family: "Elsie", cursive;
-  box-shadow: 0 5px 10px #e5106c; }
+  box-shadow: 0 5px 10px #e5106c;
+  margin: 20px; }
   .party span {
     font-family: "Josefin Sans", sans-serif;
     font-weight: 300; }
@@ -32,90 +33,99 @@ hr {
 
 .party-form input {
   padding: 5px 10px;
-  border-radius: 50px;
+  border-radius: 0px;
   background: transparent;
-  border: 1px solid #8d99ae; }
+  border-bottom: 1px solid #8d99ae; }
   .party-form input:focus {
     outline: none; }
 
 .party-list {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #000;
+  border: 1px solid #8d99ae;
   width: 80%;
   margin: 0 auto;
   min-height: 600px; }
 
 .create-party {
-  color: #fff;
+  color: #353538;
   font-family: "Josefin Sans", sans-serif;
   font-size: 1.5rem;
   padding: 10px 15px;
   border-radius: 5px;
   margin: 10px;
   background: #8d99ae;
-  border: 2px solid #8d99ae;
-  transition: .2s all ease-out; }
-  .create-party:hover {
-    cursor: pointer;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 10px lightgrey; }
+  border: 2px solid #8d99ae; }
 
 .App {
   text-align: center; }
 
 .styles_modal__gNwvD {
-  height: 450px;
+  height: 400px;
   width: 800px;
-  padding: 40px;
-  padding-bottom: 0; }
-  .styles_modal__gNwvD > div {
-    height: 100%; }
+  padding: 40px; }
   .styles_modal__gNwvD h2 {
     font-family: "Elsie", cursive;
     margin-bottom: 10px; }
   .styles_modal__gNwvD form {
-    font-size: 2.25rem;
     font-family: "Josefin Sans", sans-serif;
     display: flex;
-    flex-direction: column;
-    height: 100%; }
+    flex-direction: column; }
     .styles_modal__gNwvD form input {
-      margin-bottom: 10px;
-      padding: 10px;
-      transition: .2s all ease-in; }
-      .styles_modal__gNwvD form input:focus {
-        padding: 10px 15px; }
+      margin-bottom: 10px; }
     .styles_modal__gNwvD form button {
-      color: #fff;
+      color: #353538;
       font-family: "Josefin Sans", sans-serif;
       font-size: 1.5rem;
       padding: 10px 15px;
       border-radius: 5px;
       margin: 10px;
       background: #e5106c;
-      border: 2px solid #fff;
-      transition: .2s all ease-out; }
-      .styles_modal__gNwvD form button:hover {
-        cursor: pointer;
-        transform: translateY(-2px);
-        box-shadow: 0 5px 10px lightgrey; }
+      border: 2px solid #fff; }
 
-.party-modal-info {
-  text-align: center;
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center; }
+.getPartiesButton {
+  height: 30px;
+  width: 80px;
+  color: #e5106c;
+  background-color: white;
+  border-radius: 7px;
+  border: 1px solid #e5106c; }
+  .getPartiesButton:hover {
+    background-color: #e5106c;
+    color: white;
+    border: 1px solid #e5106c; }
 
-.styles_closeIcon__1QwbI {
-  transition: .2s all ease-out; }
-  .styles_closeIcon__1QwbI:hover {
-    cursor: pointer;
-    transform: scale(1.5); }
+.create-party {
+  height: 50px;
+  width: 200px;
+  color: white;
+  background-color: #e5106c;
+  border-radius: 7px;
+  border: none; }
+  .create-party:hover {
+    background-color: white;
+    color: #e5106c;
+    border: 1px solid #e5106c; }
 
-.message {
-  font-size: 1.5rem; }
+.party-split {
+  margin-top: 10px; }
+
+.shopping-submit {
+  margin-top: 5px;
+  height: 30px;
+  width: 50px;
+  color: white;
+  background-color: #e5106c;
+  border-radius: 7px;
+  border: none; }
+  .shopping-submit:hover {
+    background-color: white;
+    color: #e5106c;
+    border: 1px solid #e5106c; }
+
+.inputbar {
+  font-style: italic; }
 
 /*# sourceMappingURL=App.css.map */

@@ -2,11 +2,11 @@ import React from "react";
 import Parties from "./Parties";
 import { connect } from "react-redux";
 import { createParty, getParties } from "../actions/partyCreateActions";
-import {getTodos} from '../actions/index'
+import { getTodos } from "../actions/index";
 import Modal from "react-responsive-modal";
-import moment from 'moment'
+import moment from "moment";
 import DatePicker from "react-datepicker";
-import Loader from 'react-loader-spinner';
+import Loader from "react-loader-spinner";
 import "react-datepicker/dist/react-datepicker.css";
 
 class Home extends React.Component {
@@ -18,7 +18,7 @@ class Home extends React.Component {
       theme: "",
       date: "",
       budget: "",
-      user_id: null,
+      user_id: null
     },
     parties: []
   };
@@ -43,7 +43,7 @@ class Home extends React.Component {
     this.setState({ openModal: true });
   };
   dateChange = date => {
-    const dateToString = moment(date)
+    const dateToString = moment(date);
     this.setState({
       partyDetails: {
         ...this.state.partyDetails,
@@ -53,14 +53,14 @@ class Home extends React.Component {
     console.log(typeof dateToString);
   };
   createParty = e => {
-    console.log(this.state.partyDetails)
+    console.log(this.state.partyDetails);
     e.preventDefault();
-    
+
     this.props.createParty(this.state.partyDetails);
     this.setState({
       partyDetails: {
         ...this.state.partyDetails,
-        title: '',
+        title: "",
         guests: "",
         theme: "",
         date: "",
@@ -69,9 +69,9 @@ class Home extends React.Component {
     });
   };
 
-  fileSelectedHandler = e => {
-    console.log(e.target.files[0]); 
-  }
+  // fileSelectedHandler = e => {
+  //   console.log(e.target.files[0]);
+  // }
 
   render() {
     return (
@@ -102,30 +102,56 @@ class Home extends React.Component {
               onChange={this.handleChanges}
               required
             />
-
-
+            <label>
+              Guests{" "}
               <input
+                name="guests"
+                value={this.state.partyDetails.guests}
+                onChange={this.handleChanges}
+              />
+            </label>
+
+            <label>
+              Date
+              <DatePicker
+                selected={this.state.partyDetails.date}
+                onChange={this.dateChange}
+                showTimeSelect
+                timeFormat="HH:mm"
+                timeIntervals={15}
+                dateFormat="MMMM d, yyyy h:mm aa"
+                timeCaption="time"
+              />
+            </label>
+
+            {/* <input
                name="date"
                value={this.state.partyDetails.date}
                onChange={this.handleChanges}
-             />
-              <label>
-                Budget{" "}
-                <input
-                  name="budget"
-                  type="number"
-                  value={this.state.partyDetails.budget}
-                  onChange={this.handleChanges}
-                  required
-                />
-              </label>
-              </div>
-                <div className="message">{this.props.message}</div>
-              <button>{this.props.creating ? 	<Loader type="ThreeDots" color="#fff" height={20} width={40} /> : 'Create Party'}</button>
-            
+             /> */}
+            <label>
+              Budget{" "}
+              <input
+                name="budget"
+                type="number"
+                value={this.state.partyDetails.budget}
+                onChange={this.handleChanges}
+                required
+              />
+            </label>
+
+            <div className="message">{this.props.message}</div>
+            <button>
+              {this.props.creating ? (
+                <Loader type="ThreeDots" color="#fff" height={20} width={40} />
+              ) : (
+                "Create Party"
+              )}
+            </button>
           </form>
         </Modal>
-        <Parties parties={this.props.parties} fetching={this.props.creating}/>
+
+        <Parties parties={this.props.parties} fetching={this.props.creating} />
       </div>
     );
   }
