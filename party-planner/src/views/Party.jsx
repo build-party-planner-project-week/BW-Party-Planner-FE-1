@@ -12,7 +12,6 @@ class Party extends React.Component {
   //   this.props.getTodos(this.props.party.id);
   // }
   deleteParty = () => {
-    console.log(this.props.party.id);
     this.props.deleteParty(this.props.party.id);
   };
   addTodoItem = todoItem => {
