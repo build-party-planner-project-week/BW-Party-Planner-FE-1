@@ -18,33 +18,35 @@ export const ADD_TODO_FAILED = "ADD_TODO_FAILED";
 export const addTodo = (todo) => dispatch => {
   dispatch({ type: ADD_TODO_START, payload: todo });
   //make axios request and dispatch other actions based on resolved or rejected
-  axiosWithAuth()
-    .post(`/28/todolist`, todo)
-    .then(res => {
-      console.log(res.data);
-      dispatch({ type: ADD_TODO_SUCCESS, payload: todo });
-    })
-    .catch(err => {
-      console.log(err);
-    });
+  // axiosWithAuth()
+  //   .post(`/28/todolist`, todo)
+  //   .then(res => {
+  //     console.log(res.data);
+  //     dispatch({ type: ADD_TODO_SUCCESS, payload: todo });
+  //   })
+  //   .catch(err => {
+  //     console.log(err);
+  //   });
+  dispatch({ type: ADD_TODO_SUCCESS, payload: todo });
+
 };
 
 export const GET_TODOS_START = "GET_TODOS_START"
 export const GET_TODOS_SUCCESS= "GET_TODOS_SUCCESS"
 export const GET_TODO_FAILED = "GET_TODOS_FAILED"
-export const getTodos = partyId => dispatch => {
-  axiosWithAuth()
-    .get(`28/todolist`)
-    .then(res => {
-      console.log(res);
-      dispatch({type: GET_TODOS_SUCCESS, payload: res.data})
+// export const getTodos = partyId => dispatch => {
+//   axiosWithAuth()
+//     .get(`28/todolist`)
+//     .then(res => {
+//       console.log(res);
+//       dispatch({type: GET_TODOS_SUCCESS, payload: res.data})
       
-    })
-    .catch(err => {
-      console.log(err);
-      dispatch({type: GET_TODO_FAILED})
-    });
-};
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       dispatch({type: GET_TODO_FAILED})
+//     });
+// };
 
 export const TOGGLE_TODO = "TOGGLE_TODO";
 

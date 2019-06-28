@@ -1,11 +1,11 @@
 import React from "react";
 
 const Todo = (props) => {
-    const {todo, toggleTodoItem, deleteTodoItem} = props
+    const {todo, toggleTodoItem, deleteTodoItem, deleteTodo} = props
   return (
     <div>
       <p onClick={() => toggleTodoItem(todo.id)}>{todo.title}</p>
-      <button onClick={() => deleteTodoItem(todo.id)}>Delete</button>
+      <button onClick={() => deleteTodo(todo.todoId)}>Delete</button>
     </div>
   )
 };

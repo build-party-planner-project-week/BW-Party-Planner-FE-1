@@ -13,29 +13,44 @@ class TodoList extends React.Component {
     });
   };
   addTodo = e => {
+    const randomNumber = Math.floor(Math.random() * 10000)
+
     e.preventDefault();
     const todoItem = {
+      todoId: randomNumber,
+      party_id: this.props.party_id,
       title: this.state.todoTitle,
       completed: false
     };
+    this.setState({
+      todos: [...this.state.todos, todoItem]
+    })
     this.props.addTodoItem(todoItem);
     this.setState({ todoTitle: "" });
   };
-
+  deleteTodo = todoId => {
+    this.setState({
+      todos: this.state.todos.filter(todo => todo.todoId !==todoId)
+    })
+    console.log(this.props.todos.filter(todo => todo.todoId !==todoId))
+  }
   render() {
     return (
       <div>
         <h3>TodoList</h3>
-        {this.props.todos.map(todo => {
-          return (
-            <Todo
-              key={todo.id}
-              todo={todo}
-              toggleTodoItem={this.props.toggleTodoItem}
-              deleteTodoItem={this.props.deleteTodoItem}
-            />
-          );
-        })}
+        {this.state.todos
+          .filter(todo => todo.party_id === this.props.party_id)
+          .map(todo => {
+            return (
+              <Todo
+                key={todo.todoId}
+                todo={todo}
+                toggleTodoItem={this.props.toggleTodoItem}
+                // deleteTodoItem={this.props.deleteTodoItem}
+                deleteTodo={this.deleteTodo}
+              />
+            );
+          })}
         <form onSubmit={this.addTodo} className="party-form">
           <input
             placeholder="Enter Todo Item"
