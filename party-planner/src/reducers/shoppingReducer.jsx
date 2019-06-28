@@ -46,12 +46,13 @@ export const itemReducer = (state = initialState, action) => {
 
 export const budgetReducer = (state = {}, action) => {
   switch (action.type) {
-    // case ADD_BUDGET:
-    //   return {
-    //     ...state,
-    //     budget: action.payload.budget,
-    //     partyId: action.payload.partyId
-    //   };
+
+    case ADD_BUDGET:
+      return {
+        ...state,
+        budget: action.payload
+      }; 
+
     case UPDATE_BUDGET:
       return {
         ...state,

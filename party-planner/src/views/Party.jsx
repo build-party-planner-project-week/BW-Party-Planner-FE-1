@@ -7,7 +7,9 @@ import { addTodo, toggleTodo, deleteTodo } from "../actions";
 import { deleteParty } from "../actions/partyCreateActions";
 
 class Party extends React.Component {
-
+componentDidMount() {
+    // this.props.getTodos(this.props.party.party_id);
+  }
   deleteParty = () => {
     console.log(this.props.party.party_id);
     this.props.deleteParty(this.props.party.party_id);
@@ -22,24 +24,21 @@ class Party extends React.Component {
     this.props.deleteTodo(todoId);
   };
   render() {
-    const { guests, theme, date, budget, title, party_id, items } = this.props.party;
+
+    const {guests, theme, date, budget, title, images} = this.props.party;
+
     return (
       <div className="party">
-        <button onClick={this.deleteParty}>Delete</button>
+        <button className='deleteButton' onClick={this.deleteParty}>X</button>
         <h2 className="party-title">{title}</h2>
-        <h4>
-          <span>Party Theme:</span> {theme}
-        </h4>
-        <h4>
-          <span>Guests:</span>
-          {guests}
-        </h4>
-    
-        <h5>
-          <span>Date:</span>
-          {moment(date).format("dddd, MMMM Do  h: a")}
-        </h5>
- 
+
+        <h4><span>Party Theme:</span> {theme}</h4>
+        <h4><span>Guests:</span>{guests}</h4>
+        <h5><span>Date:</span>{moment(date).format('dddd, MMMM Do  h: a')}</h5>
+        {/* <h5><span>Budget:</span>${this.props.budget.budget}</h5> */}
+        <p>{images}</p>
+
+
 
         <div className="party-split">
           <TodoList
@@ -47,10 +46,10 @@ class Party extends React.Component {
             addTodoItem={this.addTodoItem}
             toggleTodoItem={this.toggleTodoItem}
             deleteTodoItem={this.deleteTodoItem}
-            party_id={party_id}
+            party_id={this.props.party.party_id}
           />
           <hr />
-          <ShoppingContainer budget={budget} party_id={party_id} items={items}/>
+          <ShoppingContainer budget={budget} party_id={this.props.party.party_id} items={this.props.party.items}/>
         </div>
       </div>
     );

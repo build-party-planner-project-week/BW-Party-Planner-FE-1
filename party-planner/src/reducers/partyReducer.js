@@ -21,6 +21,7 @@ const initialState = {
   guests: "",
   budget: '',
   date: "",
+  // images: '',
   todoList: [
   ],
   creating: false,
