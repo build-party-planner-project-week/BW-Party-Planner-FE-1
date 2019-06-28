@@ -51,18 +51,20 @@ class ShoppingItem extends Component {
             <button onClick={this.submitPrice}>Submit</button>
           </div>
         </Modal>
+        <div className='shoppingItem'>
         <h2
           onClick={
             !this.props.item.completed ? this.handleToggleCompleted : () => null
           }
-          style={this.props.item.completed ? { color: "red" } : null}
+          style={this.props.item.completed ? { color: "black" } : null}
         >
-          {this.props.item.value}   {this.props.item.price} 
+          <span>{this.props.item.value}</span><span> {this.props.item.price} </span>
         </h2>
         {/* <h2>{this.props.budget.value}</h2> */}
-        <button onClick={() => this.props.deleteItem(this.props.index)}>
-          Delete!
+        <button className='deleteShoppingItem'  onClick={() => this.props.deleteItem(this.props.index)}>
+          X
         </button>
+        </div>
       </div>
     );
   }

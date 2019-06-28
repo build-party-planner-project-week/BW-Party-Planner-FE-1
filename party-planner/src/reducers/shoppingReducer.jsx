@@ -50,7 +50,7 @@ export const budgetReducer = (state = {}, action) => {
       return {
         ...state,
         budget: action.payload
-      };
+      }; 
     case UPDATE_BUDGET:
       return {
         ...state,

@@ -4,7 +4,7 @@ import ShoppingForm from './ShoppingForm';
 
 function ShoppingContainer() {
   return (
-    <div className="App">
+    <div className="ShoppingContainer">
       <h3>Shopping List</h3>
       <ShoppingForm />
       <ShoppingList />

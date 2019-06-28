@@ -3,7 +3,8 @@
   flex-direction: column; 
   justify-content: space-between;
   align-items: center;
-  border: 1px solid $accentTwo;
+  
+  
   width: 80%;
   margin: 0 auto;
   min-height: 600px;
@@ -16,4 +17,6 @@
 
 .App {
   text-align: center;
+  background-image: url('https://ak6.picdn.net/shutterstock/videos/22620496/thumb/10.jpg');
+  height: 100vh; 
 }

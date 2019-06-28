@@ -19,6 +19,7 @@ const initialState = {
   guests: "",
   budget: 100,
   date: "",
+  // images: '',
   todoList: [
     //I think server would have to add ids
   ],
