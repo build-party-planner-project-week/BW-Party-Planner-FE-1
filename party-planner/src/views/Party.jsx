@@ -3,13 +3,11 @@ import TodoList from "./TodoList";
 import ShoppingContainer from "../Shopping/ShoppingContainer";
 import { connect } from "react-redux";
 import moment from "moment";
-import { addTodo, toggleTodo, deleteTodo, getTodos } from "../actions";
+import { addTodo, toggleTodo, deleteTodo } from "../actions";
 import { deleteParty } from "../actions/partyCreateActions";
 
 class Party extends React.Component {
-  componentDidMount() {
-    this.props.getTodos(this.props.party.party_id);
-  }
+
   deleteParty = () => {
     console.log(this.props.party.party_id);
     this.props.deleteParty(this.props.party.party_id);
@@ -49,6 +47,7 @@ class Party extends React.Component {
             addTodoItem={this.addTodoItem}
             toggleTodoItem={this.toggleTodoItem}
             deleteTodoItem={this.deleteTodoItem}
+            party_id={party_id}
           />
           <hr />
           <ShoppingContainer budget={budget} party_id={party_id} items={items}/>
@@ -67,5 +66,5 @@ const mapStateToProps = state => {
 };
 export default connect(
   mapStateToProps,
-  { addTodo, toggleTodo, deleteTodo, deleteParty, getTodos }
+  { addTodo, toggleTodo, deleteTodo, deleteParty }
 )(Party);
