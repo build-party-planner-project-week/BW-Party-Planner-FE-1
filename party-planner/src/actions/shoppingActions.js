@@ -6,23 +6,29 @@ import {
   UPDATE_BUDGET
 } from "../reducers/shoppingReducer";
 
-export const addItem = item => {
+export const addItem = (item) => {
   return {
     type: ADD,
     payload: item
   };
 };
 
-export const addBudget = budget => {
+export const addBudget = (partyId, budget) => {
   return {
     type: ADD_BUDGET,
-    payload: budget
+    payload: {partyId, budget}
   };
 };
-export const updateBudget = price => {
+// export const updateBudget = price => {
+//   return {
+//     type: UPDATE_BUDGET,
+//     payload: price
+//   };
+// };
+export const updateBudget = (partyId, price) => {
   return {
     type: UPDATE_BUDGET,
-    payload: price
+    payload: {price, partyId}
   };
 };
 

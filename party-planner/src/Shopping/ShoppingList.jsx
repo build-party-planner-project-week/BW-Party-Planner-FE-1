@@ -8,11 +8,24 @@ class ShoppingList extends Component {
   }
 
   render() {
+    // console.log(this.props.items)
+    // this.props.items.map(item => console.log(item + 'partyId' + this.props.party_id))
     return (
       <div>
-        {this.props.items.map((item, index) => (
-          <ShoppingItem key={index} item={item} index={index} />
-        ))}
+
+        {this.props.items
+          .filter(item => {
+            return item.party_id === this.props.party_id
+            
+          })
+          .map((item, index) => (
+            <ShoppingItem
+              key={index}
+              item={item}
+              index={index}
+              party_id={this.props.party_id}
+            />
+          ))}
       </div>
     );
   }

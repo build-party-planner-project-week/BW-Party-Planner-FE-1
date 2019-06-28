@@ -2,7 +2,6 @@ import React from "react";
 import Parties from "./Parties";
 import { connect } from "react-redux";
 import { createParty, getParties } from "../actions/partyCreateActions";
-import { getTodos } from "../actions/index";
 import Modal from "react-responsive-modal";
 import moment from "moment";
 import DatePicker from "react-datepicker";
@@ -195,5 +194,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { createParty, getParties, getTodos }
+  { createParty, getParties }
 )(Home);

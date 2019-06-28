@@ -10,18 +10,19 @@ import {
   CREATE_PARTY_SUCCESS,
   CREATE_PARTY_FAILED,
   GET_PARTIES,
-  GET_PARTIES_SUCCESS
+  GET_PARTIES_SUCCESS,
+  DELETE_PARTY_SUCCESS
 } from "../actions/partyCreateActions";
+import {ADD_BUDGET, UPDATE_BUDGET, ADD} from '../reducers/shoppingReducer'
 
 const initialState = {
   parties: [],
   theme: "",
   guests: "",
-  budget: 100,
+  budget: '',
   date: "",
   // images: '',
   todoList: [
-    //I think server would have to add ids
   ],
   creating: false,
   addingItem: false, //maybe used to indicate that user is adding item to todo or shopping list and is communicating with server
@@ -38,6 +39,7 @@ export default (state = initialState, action) => {
         message: null
       };
     case CREATE_PARTY_SUCCESS:
+      console.log(action.payload)
       return {
         ...state,
         creating: false,
@@ -50,6 +52,7 @@ export default (state = initialState, action) => {
         creating: false,
         message: `Couldn't create ${action.payload} party ${action.err}`
       }
+
     case GET_PARTIES:
       return {
         ...state,
@@ -61,6 +64,41 @@ export default (state = initialState, action) => {
         parties: action.payload,
         creating: false
       };
+      case ADD_BUDGET:
+        return {
+          ...state,
+          parties: state.parties.map(party => {
+            if(party.party_id === action.payload.partyId){
+              party.budget = action.payload.budget
+              return party
+            } else {
+              return party
+            }
+          })
+        }
+        // case ADD:
+        //     let newParties = state.parties.map(party => {
+        //       if(party.party_id === action.payload.partyId){
+        //         if(!party.items){
+        //           party.items = []
+        //         } party.items.push(action.payload.item)
+        //         return party
+        //       } else {
+        //         return party
+        //       }
+        //     })
+
+        //     return {
+        //         ...state,
+        //         parties: newParties
+        //     }
+    
+      case UPDATE_BUDGET:
+        return {
+          ...state,
+          // parties: state.parties.map(party)
+        }
+   
     case ADD_TODO_START:
       return {
         ...state
