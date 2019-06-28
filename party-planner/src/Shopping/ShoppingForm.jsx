@@ -45,9 +45,11 @@ class ShoppingForm extends Component {
           onChange={event => this.setState({ budget: event.target.value })}
           name="value"
           value={this.props.budget || this.state.budget}
-          placeholder="Enter Budget Here"
-        />
-        <button className="shopping-submit">Submit</button>
+
+          placeholder='Enter Budget Here'
+        /> <br />
+        <button className='shopping-submit'>Submit</button>
+
       </form>
     );
   }

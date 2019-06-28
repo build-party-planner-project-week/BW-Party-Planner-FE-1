@@ -8,6 +8,7 @@ import DatePicker from "react-datepicker";
 import Loader from "react-loader-spinner";
 import "react-datepicker/dist/react-datepicker.css";
 
+
 class Home extends React.Component {
   state = {
     openModal: false,
@@ -17,6 +18,7 @@ class Home extends React.Component {
       theme: "",
       date: "",
       budget: "",
+      // images: '',
       user_id: null
     },
     parties: []
@@ -63,10 +65,22 @@ class Home extends React.Component {
         guests: "",
         theme: "",
         date: "",
-        budget: ""
+        budget: "",
+        // images: ''
       }
     });
   };
+
+  logout() {
+    localStorage.clear(); 
+    window.location.href='/'; 
+  }
+
+  onDrop = image => {
+    this.setState({
+      images: this.state.images.concat(image)
+    })
+  }
 
   // fileSelectedHandler = e => {
   //   console.log(e.target.files[0]);
@@ -78,6 +92,7 @@ class Home extends React.Component {
         <button onClick={this.openModal} className="create-party">
           Add new party
         </button>
+        
 
         <Modal
           className="party-modal"
@@ -102,16 +117,16 @@ class Home extends React.Component {
               required
             />
             <label>
-              Guests{" "}
+              Guests </label>
               <input
                 name="guests"
                 value={this.state.partyDetails.guests}
                 onChange={this.handleChanges}
               />
-            </label>
+           
 
             <label>
-              Date
+              Date</label>
               <DatePicker
                 selected={this.state.partyDetails.date}
                 onChange={this.dateChange}
@@ -121,7 +136,7 @@ class Home extends React.Component {
                 dateFormat="MMMM d, yyyy h:mm aa"
                 timeCaption="time"
               />
-            </label>
+            
 
             {/* <input
                name="date"
@@ -129,7 +144,7 @@ class Home extends React.Component {
                onChange={this.handleChanges}
              /> */}
             <label>
-              Budget{" "}
+              Budget</label>
               <input
                 name="budget"
                 type="number"
@@ -137,10 +152,18 @@ class Home extends React.Component {
                 onChange={this.handleChanges}
                 required
               />
-            </label>
+            
+            {/* <label>Mood Image URL</label>
+            <input 
+            name="images"
+            value={this.state.partyDetails.images}
+            onChange={this.handleChanges}
+            /> */}
+
+            
 
             <div className="message">{this.props.message}</div>
-            <button>
+            <button className='createPartyButton'>
               {this.props.creating ? (
                 <Loader type="ThreeDots" color="#fff" height={20} width={40} />
               ) : (
@@ -151,7 +174,11 @@ class Home extends React.Component {
         </Modal>
 
         <Parties parties={this.props.parties} fetching={this.props.creating} />
+        <div>
+          <button className='logoutButton' onClick={() => this.logout()}>Logout</button>
+        </div>
       </div>
+      
     );
   }
 }

@@ -13,9 +13,9 @@
     input {
       margin-bottom: 10px;
     }
-    button {
-      @include btn($callToAction, $background);
-    }
+    // button {
+    //   @include btn($callToAction, $background);
+    // }
   }
 }
 // .party-modal {
@@ -48,15 +48,15 @@
     background-color: white;
     color: #e5106c;
     border: 1px solid #e5106c;
-  } 
+  }
 }
 
 .party-split {
-  margin-top: 10px; 
+  margin-top: 10px;
 }
 
-.shopping-submit{
-  margin-top: 5px; 
+.shopping-submit {
+  margin-top: 5px;
   height: 30px;
   width: 50px;
   color: white;
@@ -72,5 +72,53 @@
 }
 
 .inputbar {
-  font-style: italic
+  font-style: italic;
+}
+
+.deleteButton {
+  background-color: #f9cfe1;
+  border: none;
+  width: 15px;
+}
+
+.shoppingItem {
+  display: flex;
+}
+
+.deleteShoppingItem {
+  background-color: transparent;
+  border: none;
+  margin-left: 50%;
+}
+
+.logoutButton {
+  margin-top: 5px;
+  height: 30px;
+  width: 50px;
+  color: #e5106c;
+  background-color: white;
+  border-radius: 7px;
+  font-weight: bold; 
+
+  border: 1px solid #e5106c;
+  &:hover {
+    background-color: #e5106c;
+    color: white;
+    border: none;
+  }
+}
+.createPartyButton {
+  margin-top: 5px;
+  height: 30px;
+  width: 80%;
+  color: white;
+  background-color: #e5106c;
+  border-radius: 7px;
+  border: none;
+
+  &:hover {
+    background-color: white;
+    color: #e5106c;
+    border: 1px solid #e5106c;
+  }
 }

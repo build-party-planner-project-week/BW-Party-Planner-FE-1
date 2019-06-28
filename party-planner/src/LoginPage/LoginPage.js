@@ -9,7 +9,7 @@ class LoginPage extends Component {
   render() {
     return (
       <div className='LoginPage'>
-        <div className='LoginPage__Aside' />
+        <div className='LoginPage__Aside'><h1>Party Planner</h1></div>
         <div className='LoginPage__Form'>
           {/* Header */}
           <div className='PageSwitcher'>

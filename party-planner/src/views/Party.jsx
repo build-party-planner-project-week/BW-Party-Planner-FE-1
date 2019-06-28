@@ -24,24 +24,21 @@ componentDidMount() {
     this.props.deleteTodo(todoId);
   };
   render() {
-    const { guests, theme, date, budget, title, party_id, items } = this.props.party;
+
+    const {guests, theme, date, budget, title, images} = this.props.party;
+
     return (
       <div className="party">
-        <button onClick={this.deleteParty}>Delete</button>
+        <button className='deleteButton' onClick={this.deleteParty}>X</button>
         <h2 className="party-title">{title}</h2>
-        <h4>
-          <span>Party Theme:</span> {theme}
-        </h4>
-        <h4>
-          <span>Guests:</span>
-          {guests}
-        </h4>
-    
-        <h5>
-          <span>Date:</span>
-          {moment(date).format("dddd, MMMM Do  h: a")}
-        </h5>
- 
+
+        <h4><span>Party Theme:</span> {theme}</h4>
+        <h4><span>Guests:</span>{guests}</h4>
+        <h5><span>Date:</span>{moment(date).format('dddd, MMMM Do  h: a')}</h5>
+        {/* <h5><span>Budget:</span>${this.props.budget.budget}</h5> */}
+        <p>{images}</p>
+
+
 
         <div className="party-split">
           <TodoList
