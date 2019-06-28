@@ -4,16 +4,6 @@ import Loader from "react-loader-spinner";
 
 class Parties extends React.Component {
 
-  // state = {
-  //   party : {
-  //     guests: 5,
-  //     theme: 'blah',
-  //     date: 'Thursday',
-  //     title: 'Test',
-  //     party_id: 12,
-  //     items: [{value: 'srjgbrjgss'}, {value: 'srjgbrjgss'}, {value: 'srjgbrjgss'}]
-  //   }
-  // }
 
   render() {
       return (
