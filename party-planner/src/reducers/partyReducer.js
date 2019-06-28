@@ -43,7 +43,8 @@ export default (state = initialState, action) => {
       return {
         ...state,
         creating: false,
-        message: `${action.payload} was successfully created!`
+        message: `${action.payload.data.title} was successfully created!`,
+        parties: [...state.parties, action.payload]
       };
 
     case CREATE_PARTY_FAILED:
