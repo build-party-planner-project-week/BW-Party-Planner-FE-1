@@ -7,7 +7,9 @@ import { addTodo, toggleTodo, deleteTodo } from "../actions";
 import { deleteParty } from "../actions/partyCreateActions";
 
 class Party extends React.Component {
-
+componentDidMount() {
+    this.props.getTodos(this.props.party.party_id);
+  }
   deleteParty = () => {
     console.log(this.props.party.party_id);
     this.props.deleteParty(this.props.party.party_id);
