@@ -51,7 +51,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         creating: false,
-        message: `Couldn't create ${action.payload} party ${action.err}`
+        message: `Couldn't create party`
       }
 
     case GET_PARTIES:
