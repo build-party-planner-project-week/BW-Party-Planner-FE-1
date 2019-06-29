@@ -37,8 +37,6 @@
     // }
   }
 }
-// .party-modal {
-// }
 
 .getPartiesButton {
   height: 30px;
@@ -128,7 +126,7 @@
 }
 .createPartyButton {
   margin-top: 5px;
-  height: 30px;
+  height: 50px;
   width: 80%;
   margin: 0 auto;
   color: white;
@@ -140,5 +138,6 @@
     background-color: white;
     color: #e5106c;
     border: 1px solid #e5106c;
+    cursor: pointer;
   }
 }

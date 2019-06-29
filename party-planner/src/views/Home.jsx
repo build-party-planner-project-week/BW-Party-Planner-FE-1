@@ -122,6 +122,7 @@ class Home extends React.Component {
               <label>
                 Guests
                 <input
+                  type="number"
                   name="guests"
                   value={this.state.partyDetails.guests}
                   onChange={this.handleChanges}
