@@ -36,8 +36,21 @@
     //   @include btn($callToAction, $background);
     // }
   }
+} 
+.styles_closeButton__20ID4 {
+  transition: .2s all ease-in;
+&:focus{
+  outline: none
 }
-
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.5);
+  }
+  &:active{
+    outline: none;
+    transform: scale(3)
+  }
+}
 .getPartiesButton {
   height: 30px;
   width: 80px;
