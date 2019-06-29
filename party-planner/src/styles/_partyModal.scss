@@ -2,6 +2,7 @@
   height: 400px;
   width: 800px;
   padding: 40px;
+  padding-bottom: 0;
   h2 {
     font-family: $text-main;
     margin-bottom: 10px;
@@ -16,12 +17,17 @@
     }
     input {
       margin-bottom: 10px;
-      padding: 10px 0;
+      padding: 10px;
+      transition: .2s all ease-out;
+      &:focus {
+        padding: 10px 15px;
+      }
     }
     .party-modal-info{
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 25px;
       label{
         text-align: center;
       }
