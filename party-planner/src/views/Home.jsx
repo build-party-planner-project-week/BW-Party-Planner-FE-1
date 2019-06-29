@@ -8,7 +8,6 @@ import DatePicker from "react-datepicker";
 import Loader from "react-loader-spinner";
 import "react-datepicker/dist/react-datepicker.css";
 
-
 class Home extends React.Component {
   state = {
     openModal: false,
@@ -68,24 +67,23 @@ class Home extends React.Component {
           guests: "",
           theme: "",
           date: "",
-          budget: "",
+          budget: ""
           // images: ''
         }
       });
-
-    }, 2000)
+    }, 2000);
   };
 
   logout() {
-    localStorage.clear(); 
-    window.location.href='/'; 
+    localStorage.clear();
+    window.location.href = "/";
   }
 
   onDrop = image => {
     this.setState({
       images: this.state.images.concat(image)
-    })
-  }
+    });
+  };
 
   // fileSelectedHandler = e => {
   //   console.log(e.target.files[0]);
@@ -97,7 +95,6 @@ class Home extends React.Component {
         <button onClick={this.openModal} className="create-party">
           Add new party
         </button>
-        
 
         <Modal
           className="party-modal"
@@ -121,43 +118,46 @@ class Home extends React.Component {
               onChange={this.handleChanges}
               required
             />
-            <label>
-              Guests </label>
-              <input
-                name="guests"
-                value={this.state.partyDetails.guests}
-                onChange={this.handleChanges}
-              />
-           
+            <div className="party-modal-info">
+              <label>
+                Guests
+                <input
+                  name="guests"
+                  value={this.state.partyDetails.guests}
+                  onChange={this.handleChanges}
+                />
+              </label>
 
-            <label>
-              Date</label>
-              <DatePicker
-                selected={this.state.partyDetails.date}
-                onChange={this.dateChange}
-                showTimeSelect
-                timeFormat="HH:mm"
-                timeIntervals={15}
-                dateFormat="MMMM d, yyyy h:mm aa"
-                timeCaption="time"
-              />
-            
+              <label>
+                Date
+                <DatePicker
+                  selected={this.state.partyDetails.date}
+                  onChange={this.dateChange}
+                  showTimeSelect
+                  timeFormat="HH:mm"
+                  timeIntervals={15}
+                  dateFormat="MMMM d, yyyy h:mm aa"
+                  timeCaption="time"
+                />
+              </label>
 
-            {/* <input
+              {/* <input
                name="date"
                value={this.state.partyDetails.date}
                onChange={this.handleChanges}
              /> */}
-            <label>
-              Budget</label>
-              <input
-                name="budget"
-                type="number"
-                value={this.state.partyDetails.budget}
-                onChange={this.handleChanges}
-                required
-              />
-            
+              <label>
+                Budget
+                <input
+                  name="budget"
+                  type="number"
+                  value={this.state.partyDetails.budget}
+                  onChange={this.handleChanges}
+                  required
+                />
+              </label>
+            </div>
+
             {/* <label>Mood Image URL</label>
             <input 
             name="images"
@@ -165,10 +165,8 @@ class Home extends React.Component {
             onChange={this.handleChanges}
             /> */}
 
-            
-
             <div className="message">{this.props.message}</div>
-            <button className='createPartyButton'>
+            <button className="createPartyButton">
               {this.props.creating ? (
                 <Loader type="ThreeDots" color="#fff" height={20} width={40} />
               ) : (
@@ -180,10 +178,11 @@ class Home extends React.Component {
 
         <Parties parties={this.props.parties} fetching={this.props.creating} />
         <div>
-          <button className='logoutButton' onClick={() => this.logout()}>Logout</button>
+          <button className="logoutButton" onClick={() => this.logout()}>
+            Logout
+          </button>
         </div>
       </div>
-      
     );
   }
 }
