@@ -58,17 +58,22 @@ class Home extends React.Component {
     e.preventDefault();
 
     this.props.createParty(this.state.partyDetails);
-    this.setState({
-      partyDetails: {
-        ...this.state.partyDetails,
-        title: "",
-        guests: "",
-        theme: "",
-        date: "",
-        budget: "",
-        // images: ''
-      }
-    });
+
+    setTimeout(() => {
+      this.setState({
+        openModal: false,
+        partyDetails: {
+          ...this.state.partyDetails,
+          title: "",
+          guests: "",
+          theme: "",
+          date: "",
+          budget: "",
+          // images: ''
+        }
+      });
+
+    }, 2000)
   };
 
   logout() {

@@ -15,8 +15,7 @@ export const createParty = partyInfo => dispatch => {
   axiosWithAuth()
     .post("/party", partyInfo)
     .then(res => {
-      dispatch({ type: CREATE_PARTY_SUCCESS, payload: res.data.title });
-      dispatch({ type: GET_PARTIES, payload: res.data });
+      dispatch({ type: CREATE_PARTY_SUCCESS, payload: res.data });
     })
     .catch(err => {
       dispatch({ type: CREATE_PARTY_FAILED, payload: err.response });
