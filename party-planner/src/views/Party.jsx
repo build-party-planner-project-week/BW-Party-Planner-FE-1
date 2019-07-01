@@ -3,8 +3,8 @@ import TodoList from "./TodoList";
 import ShoppingContainer from "../Shopping/ShoppingContainer";
 import { connect } from "react-redux";
 import moment from "moment";
-import { addTodo, toggleTodo, deleteTodo } from "../actions";
-import { deleteParty } from "../actions/partyCreateActions";
+import { addTodo, toggleTodo, deleteTodo } from "../actions/todoActions";
+import { deleteParty } from "../actions/partyActions";
 
 class Party extends React.Component {
 componentDidMount() {

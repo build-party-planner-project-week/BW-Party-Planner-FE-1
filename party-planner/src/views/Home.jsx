@@ -1,7 +1,7 @@
 import React from "react";
 import Parties from "./Parties";
 import { connect } from "react-redux";
-import { createParty, getParties } from "../actions/partyCreateActions";
+import { createParty, getParties } from "../actions/partyActions";
 import Modal from "react-responsive-modal";
 import moment from "moment";
 import DatePicker from "react-datepicker";

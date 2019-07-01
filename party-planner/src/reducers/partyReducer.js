@@ -4,7 +4,7 @@ import {
   ADD_TODO_FAILED,
   TOGGLE_TODO,
   DELETE_TODO
-} from "../actions";
+} from "../actions/todoActions";
 import {
   CREATE_PARTY_START,
   CREATE_PARTY_SUCCESS,
@@ -12,7 +12,7 @@ import {
   GET_PARTIES,
   GET_PARTIES_SUCCESS,
   DELETE_PARTY_SUCCESS
-} from "../actions/partyCreateActions";
+} from "../actions/partyActions";
 import {ADD_BUDGET, UPDATE_BUDGET, ADD} from '../reducers/shoppingReducer'
 
 const initialState = {

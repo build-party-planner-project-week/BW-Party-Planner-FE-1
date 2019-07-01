@@ -6,6 +6,7 @@ const Todo = (props) => {
     <div>
       <p onClick={() => toggleTodoItem(todo.id)}>{todo.title}</p>
       <button onClick={() => deleteTodo(todo.todoId)}>Delete</button>
+      <button>Edit</button>
     </div>
   )
 };
